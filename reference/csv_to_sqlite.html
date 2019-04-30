@@ -191,21 +191,21 @@ individual columns (default 1000).</p></td>
 
     
     <p>The <code>callback</code> argument in the <code>read_delim_chunked</code> function call
-refers to the custom written callback function `append_to_sqlite` applied
+refers to the custom written callback function <code>append_to_sqlite</code> applied
 to each chunk.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>R.utils</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>dplyr</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>R.utils</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)
 <span class='no'>csv.name</span> <span class='kw'>&lt;-</span> <span class='st'>"2016-04-20-processed-logs-big-file-example.csv"</span>
 <span class='no'>db.name</span> <span class='kw'>&lt;-</span> <span class='st'>"2016-04-20-processed-logs-big-file-example.db"</span>
 <span class='co'># download the CSV file example</span>
-<span class='no'>csv.url</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste</a></span>(<span class='st'>"https://s3-eu-west-1.amazonaws.com/lw-birdtracking-data/"</span>,
+<span class='no'>csv.url</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"https://s3-eu-west-1.amazonaws.com/lw-birdtracking-data/"</span>,
                  <span class='no'>csv.name</span>, <span class='st'>".gz"</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>""</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/download.file'>download.file</a></span>(<span class='no'>csv.url</span>, <span class='kw'>destfile</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(<span class='no'>csv.name</span>, <span class='st'>".gz"</span>))
-<span class='fu'>gunzip</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(<span class='no'>csv.name</span>, <span class='st'>".gz"</span>))
+<span class='fu'><a href='https://rdrr.io/r/utils/download.file.html'>download.file</a></span>(<span class='no'>csv.url</span>, <span class='kw'>destfile</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='no'>csv.name</span>, <span class='st'>".gz"</span>))
+<span class='fu'>gunzip</span>(<span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='no'>csv.name</span>, <span class='st'>".gz"</span>))
 <span class='co'># Make a SQLite database</span>
 <span class='no'>sqlite_file</span> <span class='kw'>&lt;-</span> <span class='st'>"example2.sqlite"</span>
 <span class='no'>table_name</span> <span class='kw'>&lt;-</span> <span class='st'>"birdtracks"</span>
@@ -222,7 +222,7 @@ to each chunk.</p>
   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>date_time</span> <span class='kw'>&lt;</span> <span class='st'>"2014-07-01"</span>) <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>date_time</span> <span class='kw'>&gt;</span> <span class='st'>"2014-03-01"</span>) <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>as_tibble</a></span>()
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>(<span class='no'>results</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>results</span>)
 <span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

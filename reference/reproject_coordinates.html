@@ -148,7 +148,7 @@ assign them back to the data.frame columns.</p>
     <tr>
       <th>col_long, col_lat</th>
       <td><p>Column names or positions of the x (longitude) and y
-(latitude) column. They are passed to <code><a href='https://www.rdocumentation.org/packages/tidyselect/topics/vars_pull'>vars_pull</a></code>.
+(latitude) column. They are passed to <code><a href='https://rdrr.io/pkg/tidyselect/man/vars_pull.html'>vars_pull</a></code>.
 These arguments are passed by expression and support
 <code><a href='https://rlang.r-lib.org/reference/quasiquotation.html'>quasiquotation</a></code> (you can unquote column names or column
 positions).</p></td>
@@ -168,27 +168,27 @@ or crs-class (<code>sf</code> compatible) defining the projection to convert to.
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A data.frame with the same columns, but adapted coordinates for the x
-  and y column values.</p>
+and y column values.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>sp</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>sf</span>)</div><div class='output co'>#&gt; <span class='message'>Linking to GEOS 3.5.0, GDAL 2.1.0, PROJ 4.8.0</span></div><div class='input'><span class='no'>data_pts</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a></span>(
-  <span class='kw'>id</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>),
-  <span class='kw'>lat</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>51.23031</span>, <span class='fl'>50.76931</span>),
-  <span class='kw'>lon</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>5.083980</span>, <span class='fl'>3.829593</span>),
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>sp</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>sf</span>)</div><div class='output co'>#&gt; <span class='message'>Linking to GEOS 3.5.0, GDAL 2.1.0, PROJ 4.8.0</span></div><div class='input'><span class='no'>data_pts</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(
+  <span class='kw'>id</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>),
+  <span class='kw'>lat</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>51.23031</span>, <span class='fl'>50.76931</span>),
+  <span class='kw'>lon</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>5.083980</span>, <span class='fl'>3.829593</span>),
   <span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
 )
 
 <span class='co'># CRS-class (use sp package)</span>
-<span class='no'>sp_crs1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/sp/topics/CRS-class'>CRS</a></span>(<span class='st'>"+init=epsg:4269"</span>)
-<span class='no'>sp_crs2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/sp/topics/CRS-class'>CRS</a></span>(<span class='st'>"+init=epsg:3857"</span>)
+<span class='no'>sp_crs1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/sp/man/CRS-class.html'>CRS</a></span>(<span class='st'>"+init=epsg:4269"</span>)
+<span class='no'>sp_crs2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/sp/man/CRS-class.html'>CRS</a></span>(<span class='st'>"+init=epsg:3857"</span>)
 <span class='fu'>reproject_coordinates</span>(<span class='no'>data_pts</span>, <span class='kw'>col_long</span> <span class='kw'>=</span> <span class='st'>"lon"</span>, <span class='kw'>col_lat</span> <span class='kw'>=</span> <span class='st'>"lat"</span>,
   <span class='kw'>crs_input</span> <span class='kw'>=</span> <span class='no'>sp_crs1</span>, <span class='kw'>crs_output</span> <span class='kw'>=</span> <span class='no'>sp_crs2</span>)</div><div class='output co'>#&gt;   id     lat      lon
 #&gt; 1  1 6662134 565946.1
 #&gt; 2  2 6580588 426308.3</div><div class='input'><span class='co'># crs-class (use sf package)</span>
-<span class='no'>sf_crs1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/sf/topics/st_crs'>st_crs</a></span>(<span class='st'>"+init=epsg:4269"</span>)
-<span class='no'>sf_crs2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/sf/topics/st_crs'>st_crs</a></span>(<span class='st'>"+init=epsg:3857"</span>)
+<span class='no'>sf_crs1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/sf/man/st_crs.html'>st_crs</a></span>(<span class='st'>"+init=epsg:4269"</span>)
+<span class='no'>sf_crs2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/sf/man/st_crs.html'>st_crs</a></span>(<span class='st'>"+init=epsg:3857"</span>)
 <span class='fu'>reproject_coordinates</span>(<span class='no'>data_pts</span>, <span class='kw'>col_long</span> <span class='kw'>=</span> <span class='st'>"lon"</span>, <span class='kw'>col_lat</span> <span class='kw'>=</span> <span class='st'>"lat"</span>,
   <span class='kw'>crs_input</span> <span class='kw'>=</span> <span class='no'>sf_crs1</span>, <span class='kw'>crs_output</span> <span class='kw'>=</span> <span class='no'>sf_crs2</span>)</div><div class='output co'>#&gt;   id     lat      lon
 #&gt; 1  1 6662134 565946.1

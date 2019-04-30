@@ -6,8 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Take a dataset and plot in different projections on a leaflet map to
-check the expected projection — guess_projection • inborutils</title>
+<title>Helper function for retrieving informations from GBIF Taxonomy Backbone — get_name_gbif • inborutils</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,14 +31,9 @@ check the expected projection — guess_projection • inborutils</title>
 
 
 
-<meta property="og:title" content="Take a dataset and plot in different projections on a leaflet map to
-check the expected projection — guess_projection" />
+<meta property="og:title" content="Helper function for retrieving informations from GBIF Taxonomy Backbone — get_name_gbif" />
 
-<meta property="og:description" content="When retrieving a number of data-points, but the kind of projection is not
-provided/known (for any reason), this utility plots the data for different
-projections on a map to make comparison possible. The main function is
-guess_projection  which creates the map with different options.
-Custom projections can be provided by the user as well." />
+<meta property="og:description" content="Helper function for retrieving informations from GBIF Taxonomy Backbone" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -127,88 +121,25 @@ Custom projections can be provided by the user as well." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Take a dataset and plot in different projections on a leaflet map to
-check the expected projection</h1>
+    <h1>Helper function for retrieving informations from GBIF Taxonomy Backbone</h1>
     
-    <div class="hidden name"><code>guess_projection.Rd</code></div>
+    <div class="hidden name"><code>get_name_gbif.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>When retrieving a number of data-points, but the kind of projection is not
-provided/known (for any reason), this utility plots the data for different
-projections on a map to make comparison possible. The main function is
-<code>guess_projection </code> which creates the map with different options.
-Custom projections can be provided by the user as well.</p>
+    <p>Helper function for retrieving informations from GBIF Taxonomy Backbone</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>guess_projection</span>(<span class='no'>df</span>, <span class='no'>col_long</span>, <span class='no'>col_lat</span>, <span class='kw'>belgium</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>projections</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"epsg:4326"</span>, <span class='st'>"epsg:31370"</span>, <span class='st'>"epsg:28992"</span>, <span class='st'>"epsg:32631"</span>,
-  <span class='st'>"epsg:3812"</span>, <span class='st'>"epsg:3035"</span>))</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>df</th>
-      <td><p>data.frame with a x and y coordinate column</p></td>
-    </tr>
-    <tr>
-      <th>col_long</th>
-      <td><p>(char) name of the x (longitude) column</p></td>
-    </tr>
-    <tr>
-      <th>col_lat</th>
-      <td><p>(char) name of the y (latitude) column</p></td>
-    </tr>
-    <tr>
-      <th>belgium</th>
-      <td><p>(bool) If TRUE, coordinates are expected to be in Belgium</p></td>
-    </tr>
-    <tr>
-      <th>projections</th>
-      <td><p>(list) epsg codes of the different projections to evaluate
-By default, the following six projections are added to the map:</p><ul>
-<li><p>"epsg:4326"WGS 84,
-http://spatialreference.org/ref/epsg/wgs-84/</p></li>
-<li><p>"epsg:31370"Belge 1972/Belgian Lambert 72,
-http://spatialreference.org/ref/epsg/31370/</p></li>
-<li><p>"epsg:28992"Amersfoort/Rijksdriehoek nieuw,
-http://spatialreference.org/ref/epsg/28992/</p></li>
-<li><p>"epsg:32631"WGS 84 / UTM zone 31N,
-http://spatialreference.org/ref/epsg/32631/</p></li>
-<li><p>"epsg:3812"ETRS89/Belgian Lambert 2008,
-http://spatialreference.org/ref/epsg/3812/</p></li>
-<li><p>"epsg:3035"ETRS89 / ETRS-LAEA,
-http://spatialreference.org/ref/epsg/3035/</p></li>
-</ul></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <pre class="usage"><span class='fu'>get_name_gbif</span>(<span class='no'>...</span>)</pre>
+        
 
-    <p>For each of the given projections, the coordinates columns are given the
-the specified projection. In a next step, these projections are converted to
-wgs84 and plotted on a openstreetmap background with leaflet. The interactive
-map provides the possibility to select/unselect specific layers.</p>
-    
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'>guess_projection</span>(<span class='no'>data</span>, <span class='st'>"x"</span>, <span class='st'>"y"</span>)
-<span class='co'># }</span><div class='input'>
-</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#details">Details</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+                </ul>
 
   </div>
 </div>
