@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Helper function for retrieving informations from GBIF Taxonomy Backbone — get_name_gbif • inborutils</title>
+<title>Rstudio Viewer integration — on_connection_opened • inborutils</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="Helper function for retrieving informations from GBIF Taxonomy Backbone — get_name_gbif" />
+<meta property="og:title" content="Rstudio Viewer integration — on_connection_opened" />
 
-<meta property="og:description" content="Helper function for retrieving informations from GBIF Taxonomy Backbone" />
+<meta property="og:description" content="See https://stackoverflow.com/questions/48936851/calling-odbc-connection-within-function-does-not-display-in-rstudio-connection and https://rstudio.github.io/rstudio-extensions/connections-contract.html#persistence" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -122,24 +122,42 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Helper function for retrieving informations from GBIF Taxonomy Backbone</h1>
+    <h1>Rstudio Viewer integration</h1>
     
-    <div class="hidden name"><code>get_name_gbif.Rd</code></div>
+    <div class="hidden name"><code>on_connection_opened.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Helper function for retrieving informations from GBIF Taxonomy Backbone</p>
+    <p>See https://stackoverflow.com/questions/48936851/calling-odbc-connection-within-function-does-not-display-in-rstudio-connection and https://rstudio.github.io/rstudio-extensions/connections-contract.html#persistence</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>get_name_gbif</span>(<span class='no'>...</span>)</pre>
-        
+    <pre class="usage"><span class='fu'>on_connection_opened</span>(<span class='no'>connection</span>, <span class='no'>code</span>, <span class='no'>type</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>connection</th>
+      <td><p>odbc connection</p></td>
+    </tr>
+    <tr>
+      <th>code</th>
+      <td><p>dbase connection code</p></td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td><p>INBO database server name</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>
