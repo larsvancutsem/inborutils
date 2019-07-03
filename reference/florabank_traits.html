@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Example data.frame with coorindates — coordinate_example • inborutils</title>
+<title>Query the florabank to get taxon trait values for (a) taxon trait(s) — florabank_traits • inborutils</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,10 @@
 
 
 
-<meta property="og:title" content="Example data.frame with coorindates — coordinate_example" />
+<meta property="og:title" content="Query the florabank to get taxon trait values for (a) taxon trait(s) — florabank_traits" />
 
-<meta property="og:description" content="A dataset containing 52 coordinates as latitude and longitude" />
+<meta property="og:description" content="This function takes as input (part of) a taxon trait name, queries the florabank
+and returns the taxon trait values in a tidy data format" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -124,35 +125,88 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Example data.frame with coorindates</h1>
+    <h1>Query the florabank to get taxon trait values for (a) taxon trait(s)</h1>
     
-    <div class="hidden name"><code>coordinate_example.Rd</code></div>
+    <div class="hidden name"><code>florabank_traits.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>A dataset containing 52 coordinates as latitude and longitude</p>
+    <p>This function takes as input (part of) a taxon trait name, queries the florabank
+and returns the taxon trait values in a tidy data format</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>coordinate_example</span></pre>
-        
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <pre class="usage"><span class='fu'>florabank_traits</span>(<span class='no'>connection</span>, <span class='no'>trait_name</span>, <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>connection</th>
+      <td><p>A connection to the florabank database. See the example section
+for how to connect and disconnect to the database.</p></td>
+    </tr>
+    <tr>
+      <th>trait_name</th>
+      <td><p>A (part of) a trait name for which you want to get the
+associated taxon-specific trait values. If this is missing, the function
+returns an error and prints a message showing all possible trait names.</p></td>
+    </tr>
+    <tr>
+      <th>collect</th>
+      <td><p>If FALSE (the default), a remote tbl object is returned. This
+is like a reference to the result of the query but the full result of the
+query is not brought into memory. If TRUE the full result of the query is
+collected (fetched) from the database and brought into memory of the working
+environment.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data frame with 52 rows and 3 variables:</p><ul>
-<li><p>id: resource identifier</p></li>
-<li><p>latitude: Latitude of the coordinates</p></li>
-<li><p>longitude: Longitude of the coordinates</p></li>
-</ul>
+    <p>A remote tbl object (collect = FALSE) or a tibble dataframe (collect
+= TRUE) containing the trait values for each species and for all
+partially matched traits. The dataframe contains the variables TaxonID,
+TaxonAfkorting, TaxonWetenschappelijk, TaxonNederlands, Kenmerk, Code,
+Omschrijving en Rekenwaarde. The first four variables identify the taxon,
+the latter four variables relate to the taxon traits.</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='co'># connect to florabank</span>
+<span class='no'>db_connectie</span> <span class='kw'>&lt;-</span> <span class='fu'>connect_inbo_dbase</span>(<span class='st'>"D0021_00_userFlora"</span>)
+
+<span class='co'># get all Ellenberg values via partial matching, return as lazy query</span>
+<span class='no'>fb_ellenberg</span> <span class='kw'>&lt;-</span> <span class='fu'>florabank_traits</span>(<span class='no'>db_connectie</span>, <span class='st'>"llenberg"</span>)
+<span class='co'># collect the data</span>
+<span class='no'>fb_ellenberg</span> <span class='kw'>&lt;-</span> <span class='no'>fb_ellenberg</span> <span class='kw'>%&gt;%</span> <span class='fu'>collect</span>()
+<span class='co'># the same can be done by using the collect parameter</span>
+<span class='no'>fb_ellenberg</span> <span class='kw'>&lt;-</span> <span class='fu'>florabank_traits</span>(<span class='no'>db_connectie</span>, <span class='st'>"llenberg"</span>, <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='co'># get all red lists via partial matching</span>
+<span class='no'>fb_rodelijsten</span> <span class='kw'>&lt;-</span> <span class='fu'>florabank_traits</span>(<span class='no'>db_connectie</span>, <span class='st'>"rode"</span>)
+
+<span class='co'># get only the red list for vascular plant species</span>
+<span class='no'>fb_rodelijstvaatplanten</span> <span class='kw'>&lt;-</span> <span class='fu'>florabank_traits</span>(<span class='no'>db_connectie</span>, <span class='st'>"Rode lijst Vaatplanten"</span>)
+
+<span class='co'>#if the trait_name argument is missing, a list of possible names is printed</span>
+<span class='fu'>florabank_traits</span>(<span class='no'>db_connectie</span>)
+
+<span class='co'>#disconnect from florabank</span>
+<span class='fu'>dbDisconnect</span>(<span class='no'>db_connectie</span>)
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#format">Format</a></li>
-          </ul>
+      <li><a href="#value">Value</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
