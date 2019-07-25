@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get all validated observations for a taxon from the florabank database — florabank_observations • inborutils</title>
+<title>Get all validated observations for one or more taxa from the florabank database — florabank_observations • inborutils</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,17 +32,13 @@
 
 
 
-<meta property="og:title" content="Get all validated observations for a taxon from the florabank database — florabank_observations" />
+<meta property="og:title" content="Get all validated observations for one or more taxa from the florabank database — florabank_observations" />
 
-<meta property="og:description" content="This function takes as input either (part of) a scientific name or (part of)
-the Dutch name for a taxon, queries the florabank, and returns a dataframe
-observation level information about the matching taxa. The following
-wildcards may be used within the input parameters:
-%: Represents zero or more characters;
-_: Represents a single character;
-[]: Represents any single character within the brackets, e.g. [sp]
-^: Represents any character not in the brackets, e.g. [^sp]
--: Represents a range of characters, e.g. [a-z]" />
+<meta property="og:description" content="This function takes as input a character vector with one or more names of
+species either as scientific names and/or Dutch names. By default (fixed = FALSE),
+partial matching will be used (the names are prepended with appended with 
+The function queries the florabank, and returns a dataframe with observation
+level information about the matching taxa." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -74,7 +70,7 @@ _: Represents a single character;
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">inborutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9053</span>
       </span>
     </div>
 
@@ -129,26 +125,22 @@ _: Represents a single character;
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get all validated observations for a taxon from the florabank database</h1>
+    <h1>Get all validated observations for one or more taxa from the florabank database</h1>
     <small class="dont-index">Source: <a href='https://github.com/inbo/inborutils/blob/master/R/florabank_queries.R'><code>R/florabank_queries.R</code></a></small>
     <div class="hidden name"><code>florabank_observations.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>This function takes as input either (part of) a scientific name or (part of)
-the Dutch name for a taxon, queries the florabank, and returns a dataframe
-observation level information about the matching taxa. The following
-wildcards may be used within the input parameters:
-<code>%</code>: Represents zero or more characters;
-<code>_</code>: Represents a single character;
-<code>[]</code>: Represents any single character within the brackets, e.g. <code>[sp]</code>
-<code>^</code>: Represents any character not in the brackets, e.g. <code>[^sp]</code>
-<code>-</code>: Represents a range of characters, e.g. <code>[a-z]</code></p>
+    <p>This function takes as input a character vector with one or more names of
+species either as scientific names and/or Dutch names. By default (fixed = FALSE),
+partial matching will be used (the names are prepended with appended with <!-- %). -->
+The function queries the florabank, and returns a dataframe with observation
+level information about the matching taxa.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>florabank_observations</span>(<span class='no'>connection</span>, <span class='no'>scient_name</span>, <span class='no'>dutch_name</span>,
+    <pre class="usage"><span class='fu'>florabank_observations</span>(<span class='no'>connection</span>, <span class='no'>names</span>, <span class='kw'>fixed</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -156,16 +148,19 @@ wildcards may be used within the input parameters:
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>connection</th>
-      <td><p>A connection to the florabank database. See the example section
-for how to connect and disconnect to the database.</p></td>
+      <td><p>A connection to the florabank database. See the example
+section for how to connect and disconnect to the database.</p></td>
     </tr>
     <tr>
-      <th>scient_name</th>
-      <td><p>(Part of) a scientific taxon name</p></td>
+      <th>names</th>
+      <td><p>Default missing. A character vector with scientific names
+and/or Dutch names. If fixed = TRUE, character strings are matched exactly and
+scientific names must include authorship in order to match.</p></td>
     </tr>
     <tr>
-      <th>dutch_name</th>
-      <td><p>(Part of) a Dutch taxon name, may contain wildcards</p></td>
+      <th>fixed</th>
+      <td><p>Logical. If TRUE, names is to be matched as is (no partial matching)
+.</p></td>
     </tr>
     <tr>
       <th>collect</th>
@@ -181,7 +176,7 @@ environment.</p></td>
 
     <p>A dataframe with the following variables: "NaamNederlands",
 "NaamWetenschappelijk", "Bron", "BeginDatum", "EindDatum", "hok",
-"Toponiem", "CommentaarTaxon", "CommentaarHabitat", "MedewerkerID",
+"Toponiem", "CommentaarTaxon", "CommentaarHabitat",
 "WaarnemingID", "X_waarneming", "Y_waarneming", "X_meting", "Y_meting"</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -192,26 +187,46 @@ environment.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='co'># code can only be run if a connection to the database is possible</span>
 <span class='co'># connect to florabank</span>
 <span class='no'>db_connectie</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>connect_inbo_dbase</a></span>(<span class='st'>"D0021_00_userFlora"</span>)
 
 <span class='co'># query and collect the data using scientific name</span>
-<span class='no'>Dactmacu1</span> <span class='kw'>&lt;-</span>    <span class='fu'>florabank_observations</span>(<span class='no'>db_connectie</span>,
-<span class='kw'>scient_name</span> <span class='kw'>=</span> <span class='st'>'Dactylorhiza maculata (L.) SoÃ³'</span>, <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='no'>succprat1</span> <span class='kw'>&lt;-</span>    <span class='fu'>florabank_observations</span>(<span class='no'>db_connectie</span>,
+<span class='kw'>names</span> <span class='kw'>=</span> <span class='st'>'Succisa pratensis Moench'</span>, <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='co'># the same species but using Dutch name</span>
-<span class='no'>Dactmacu2</span> <span class='kw'>&lt;-</span>    <span class='fu'>florabank_observations</span>(<span class='no'>db_connectie</span>,
-<span class='kw'>dutch_name</span> <span class='kw'>=</span> <span class='st'>'Gevlekte orchis'</span>, <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='no'>succprat2</span> <span class='kw'>&lt;-</span>    <span class='fu'>florabank_observations</span>(<span class='no'>db_connectie</span>,
+<span class='kw'>names</span> <span class='kw'>=</span> <span class='st'>'Blauwe knoop'</span>, <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='no'>Dactmacu1</span>, <span class='no'>Dactmacu2</span>)
+<span class='co'># providing both a Dutch name and scientific name will not duplicate records</span>
+<span class='co'># if they are the same species</span>
+<span class='no'>succprat3</span> <span class='kw'>&lt;-</span> <span class='fu'>florabank_observations</span>(<span class='no'>db_connectie</span>,
+<span class='kw'>names</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Succisa pratensis Moench"</span>, <span class='st'>"Blauwe knoop"</span>), <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='co'># use wildcards to retrieve all partial matches to a name</span>
+<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='no'>succprat1</span>, <span class='no'>succprat2</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='no'>succprat1</span>, <span class='no'>succprat3</span>)
+
+<span class='co'># passing dutch names and scientific names for different species</span>
+<span class='co'># is possible (records for each species is returned)</span>
+<span class='no'>myspecies1</span> <span class='kw'>&lt;-</span> <span class='fu'>florabank_observations</span>(<span class='no'>db_connectie</span>,
+<span class='kw'>names</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'Succisa pratensis Moench'</span>, <span class='st'>'Gevlekte orchis'</span>), <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='co'># passing multiple dutch names</span>
+<span class='no'>myspecies2</span> <span class='kw'>&lt;-</span> <span class='fu'>florabank_observations</span>(<span class='no'>db_connectie</span>,
+<span class='kw'>names</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'Gevlekte orchis'</span>, <span class='st'>'Blauwe knoop'</span>),
+<span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='no'>myspecies1</span>, <span class='no'>myspecies2</span>)
+
 <span class='co'># using default for collect will return a lazy query</span>
-<span class='no'>Dactmacu3</span> <span class='kw'>&lt;-</span>    <span class='fu'>florabank_observations</span>(<span class='no'>db_connectie</span>,
-<span class='kw'>scient_name</span> <span class='kw'>=</span> <span class='st'>'Dactylorhiza maculata%'</span>)
+<span class='co'># fixed = TRUE for exact matches only</span>
+<span class='no'>myspecies3</span> <span class='kw'>&lt;-</span>   <span class='fu'>florabank_observations</span>(<span class='no'>db_connectie</span>,
+<span class='kw'>names</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'Succisa pratensis Moench'</span>, <span class='st'>'Gevlekte orchis'</span>),
+<span class='kw'>fixed</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='co'># to collect the data for a lazy query you can also do:</span>
-<span class='no'>Dactmacu3</span> <span class='kw'>&lt;-</span> <span class='fu'>collect</span>(<span class='no'>Dactmacu3</span>)
+<span class='co'># to collect the data for a lazy query you can also use the collect() function:</span>
+<span class='no'>myspecies3</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/compute.html'>collect</a></span>(<span class='no'>myspecies3</span>)
 
 <span class='co'># disconnect from florabank</span>
 <span class='fu'>dbDisconnect</span>(<span class='no'>db_connectie</span>)
