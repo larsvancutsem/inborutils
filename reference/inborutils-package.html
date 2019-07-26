@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Download KNMI hourly data to file — download_knmi_data_hour • inborutils</title>
+<title>inborutils: Collection of Useful R Utilities — inborutils-package • inborutils</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,10 +32,12 @@
 
 
 
-<meta property="og:title" content="Download KNMI hourly data to file — download_knmi_data_hour" />
+<meta property="og:title" content="inborutils: Collection of Useful R Utilities — inborutils-package" />
 
-<meta property="og:description" content="Meer info, zie
-https://www.knmi.nl/kennis-en-datacentrum/achtergrond/data-ophalen-vanuit-een-script" />
+<meta property="og:description" content="While working on research projects, typical small functionalities 
+    are useful across these projects. Instead of copy-pasting these functions in 
+    all indidivual project repositories/folders, this package collects these 
+    functions for reuse by ourself and - if useful - others as well." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -122,75 +124,57 @@ https://www.knmi.nl/kennis-en-datacentrum/achtergrond/data-ophalen-vanuit-een-sc
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Download KNMI hourly data to file</h1>
-    <small class="dont-index">Source: <a href='https://github.com/inbo/inborutils/blob/master/R/download_knmi_data_hour.R'><code>R/download_knmi_data_hour.R</code></a></small>
-    <div class="hidden name"><code>download_knmi_data_hour.Rd</code></div>
+    <h1>inborutils: Collection of Useful R Utilities</h1>
+    <small class="dont-index">Source: <a href='https://github.com/inbo/inborutils/blob/master/R/inborutils.R'><code>R/inborutils.R</code></a></small>
+    <div class="hidden name"><code>inborutils-package.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Meer info, zie
-https://www.knmi.nl/kennis-en-datacentrum/achtergrond/data-ophalen-vanuit-een-script</p>
+    <p>While working on research projects, typical small functionalities 
+    are useful across these projects. Instead of copy-pasting these functions in 
+    all indidivual project repositories/folders, this package collects these 
+    functions for reuse by ourself and - if useful - others as well.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>download_knmi_data_hour</span>(<span class='no'>stations</span>, <span class='no'>variables</span>, <span class='no'>start_date</span>, <span class='no'>end_date</span>,
-  <span class='kw'>output_file</span> <span class='kw'>=</span> <span class='st'>"knmi_download.txt"</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>stations</th>
-      <td><p>list of integers, for an overview, see
-http://projects.knmi.nl/klimatologie/metadata/stationslijst.html</p></td>
-    </tr>
-    <tr>
-      <th>variables</th>
-      <td><p>list of variables, options are:</p><ul>
-<li><p>"WIND = DD:FH:FF:FX"Wind</p></li>
-<li><p>"TEMP = T:T10N:TD"Temperatuur</p></li>
-<li><p>"SUNR = SQ:Q"Zonneschijnduur en globale straling</p></li>
-<li><p>"PRCP = DR:RH"Neerslag en potentiële verdamping</p></li>
-<li><p>"VICL = VV:N:U"Zicht, bewolking en relatieve vochtigheid</p></li>
-<li><p>"WEER = M:R:S:O:Y:WW"Weerverschijnselen, weertypen</p></li>
-<li><p>"ALL"alle variabelen</p></li>
-</ul></td>
-    </tr>
-    <tr>
-      <th>start_date</th>
-      <td><p>date interpretable string to define start of the period</p></td>
-    </tr>
-    <tr>
-      <th>end_date</th>
-      <td><p>date interpretable string to define end of the period</p></td>
-    </tr>
-    <tr>
-      <th>output_file</th>
-      <td><p>path/filename of the output_file_name</p></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+        
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>response containing, status_code, content,...</p>
+    <div class='dont-index'><p>Useful links:</p><ul>
+<li><p><a href='https://github.com/inbo/inborutils'>https://github.com/inbo/inborutils</a></p></li>
+<li><p><a href='https://inbo.github.io/inborutils'>https://inbo.github.io/inborutils</a></p></li>
+<li><p>Report bugs at <a href='https://github.com/inbo/inborutils/issues'>https://github.com/inbo/inborutils/issues</a></p></li>
+</ul>
+
+</div>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'>download_knmi_data_uur</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>310</span>, <span class='fl'>319</span>), <span class='st'>"PRCP"</span>, <span class='st'>"2011-01-01"</span>, <span class='st'>"2012-02-17"</span>,
-<span class='kw'>output_file</span> <span class='kw'>=</span> <span class='st'>"knmi_output_download.txt"</span>)
-<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#value">Value</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+      <li><a href="#see-also">See also</a></li>
+          </ul>
+
+    <h2>Author</h2>
+    <p><strong>Maintainer</strong>: Hans Van Calster <a href='mailto:hans.vancalster@inbo.be'>hans.vancalster@inbo.be</a> (0000-0001-8595-8426)</p>
+<p>Authors:</p><ul>
+<li><p>Damiano Oldoni <a href='mailto:damiano.oldoni@inbo.be'>damiano.oldoni@inbo.be</a> (0000-0003-3445-7562)</p></li>
+<li><p>Stijn Van Hoey <a href='mailto:stijn.vanhoey@inbo.be'>stijn.vanhoey@inbo.be</a> (0000-0001-6413-3185)</p></li>
+</ul>
+
+<p>Other contributors:</p><ul>
+<li><p>Dimitri Brosens <a href='mailto:dimitri.brosens@inbo.be'>dimitri.brosens@inbo.be</a> (0000-0002-0846-9116) [contributor]</p></li>
+<li><p>Peter Desmet <a href='mailto:peter.desmet@inbo.be'>peter.desmet@inbo.be</a> (0000-0002-8442-8025) [contributor]</p></li>
+<li><p>Frank Huysentruyt <a href='mailto:frank.huysentruyt@inbo.be'>frank.huysentruyt@inbo.be</a> (0000-0002-3071-9126) [contributor]</p></li>
+<li><p>Thierry Onkelinx <a href='mailto:thierry.onkelinx@inbo.be'>thierry.onkelinx@inbo.be</a> (0000-0001-8804-4216) [contributor]</p></li>
+<li><p>Floris Vanderhaeghe <a href='mailto:floris.vanderhaeghe@inbo.be'>floris.vanderhaeghe@inbo.be</a> (0000-0002-6378-6229) [contributor]</p></li>
+<li><p>Pieter Verschelde <a href='mailto:pieter.verschelde@inbo.be'>pieter.verschelde@inbo.be</a> (0000-0002-9199-421X) [contributor]</p></li>
+<li><p>Research Institute for Nature and Forest (INBO) <a href='mailto:info@inbo.be'>info@inbo.be</a> [copyright holder]</p></li>
+</ul>
+
 
   </div>
 </div>
