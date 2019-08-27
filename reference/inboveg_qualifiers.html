@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>inborutils: Collection of Useful R Utilities — inborutils-package • inborutils</title>
+<title>Query qualifier information of recordings (relevé) from INBOVEG — inboveg_qualifiers • inborutils</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,12 +32,10 @@
 
 
 
-<meta property="og:title" content="inborutils: Collection of Useful R Utilities — inborutils-package" />
+<meta property="og:title" content="Query qualifier information of recordings (relevé) from INBOVEG — inboveg_qualifiers" />
 
-<meta property="og:description" content="While working on research projects, typical small functionalities 
-    are useful across these projects. Instead of copy-pasting these functions in 
-    all indidivual project repositories/folders, this package collects these 
-    functions for reuse by ourself and - if useful - others as well." />
+<meta property="og:description" content="This function queries the INBOVEG database for
+qualifier information on recordings  for one or more surveys." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -124,58 +122,94 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>inborutils: Collection of Useful R Utilities</h1>
-    <small class="dont-index">Source: <a href='https://github.com/inbo/inborutils/blob/master/R/inborutils.R'><code>R/inborutils.R</code></a></small>
-    <div class="hidden name"><code>inborutils-package.Rd</code></div>
+    <h1>Query qualifier information of recordings (relevé) from INBOVEG</h1>
+    <small class="dont-index">Source: <a href='https://github.com/inbo/inborutils/blob/master/R/inboveg_qualifiers.R'><code>R/inboveg_qualifiers.R</code></a></small>
+    <div class="hidden name"><code>inboveg_qualifiers.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>While working on research projects, typical small functionalities 
-    are useful across these projects. Instead of copy-pasting these functions in 
-    all indidivual project repositories/folders, this package collects these 
-    functions for reuse by ourself and - if useful - others as well.</p>
+    <p>This function queries the INBOVEG database for
+qualifier information on recordings  for one or more surveys.</p>
     
     </div>
 
-        
+    <pre class="usage"><span class='fu'>inboveg_qualifiers</span>(<span class='no'>connection</span>, <span class='no'>survey_name</span>, <span class='kw'>multiple</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>connection</th>
+      <td><p>dbconnection with the database 'Cydonia'
+on the inbo-sql07-prd server</p></td>
+    </tr>
+    <tr>
+      <th>survey_name</th>
+      <td><p>A character string or a character vector, depending on
+multiple parameter, giving the name or names of the
+survey(s) for which you want to extract relevé information. If missing, all
+surveys are returned.</p></td>
+    </tr>
+    <tr>
+      <th>multiple</th>
+      <td><p>If TRUE, survey_name can take a character vector with
+multiple survey names that must match exactly. If FALSE (the default),
+survey_name must be a single character string (one survey name) that can
+include wildcarts to allow partial matches</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A dataframe with variables RecordingGivid (unique Id), UserReference,
+Observer, QualifierType, QualifierCode, Description, 2nd QualifierCode,
+2nd Description, 3rd QualifierCode, 3rd Description, Elucidation, in case
+qualifier is 'NotSure', ParentID, QualifierResource</p>
+    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Useful links:</p><ul>
-<li><p><a href='https://github.com/inbo/inborutils'>https://github.com/inbo/inborutils</a></p></li>
-<li><p><a href='https://inbo.github.io/inborutils'>https://inbo.github.io/inborutils</a></p></li>
-<li><p>Report bugs at <a href='https://github.com/inbo/inborutils/issues'>https://github.com/inbo/inborutils/issues</a></p></li>
-</ul>
-
-</div>
+    <div class='dont-index'><p>Other inboveg: <code><a href='inboveg_classification.html'>inboveg_classification</a></code>,
+  <code><a href='inboveg_header.html'>inboveg_header</a></code>,
+  <code><a href='inboveg_recordings.html'>inboveg_recordings</a></code>,
+  <code><a href='inboveg_survey.html'>inboveg_survey</a></code></p></div>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='no'>con</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>connect_inbo_dbase</a></span>(<span class='st'>"D0010_00_Cydonia"</span>)
+
+<span class='co'># get the qualifiers from one survey</span>
+<span class='no'>qualifiers_heischraal2012</span> <span class='kw'>&lt;-</span> <span class='fu'>inboveg_qualifiers</span>(<span class='no'>con</span>, <span class='kw'>survey_name</span> <span class='kw'>=</span>
+<span class='st'>"MILKLIM_Heischraal2012"</span>)
+
+<span class='co'># get all qualifiers from MILKLIM surveys (partial matching)</span>
+<span class='no'>qualifiers_milkim</span> <span class='kw'>&lt;-</span> <span class='fu'>inboveg_qualifiers</span>(<span class='no'>con</span>, <span class='kw'>survey_name</span> <span class='kw'>=</span> <span class='st'>"%MILKLIM%"</span>)
+
+<span class='co'># get qualifiers from several specific surveys</span>
+<span class='no'>qualifiers_severalsurveys</span> <span class='kw'>&lt;-</span> <span class='fu'>inboveg_qualifiers</span>(<span class='no'>con</span>, <span class='kw'>survey_name</span> <span class='kw'>=</span>
+<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"MILKLIM_Heischraal2012"</span>, <span class='st'>"NICHE Vlaanderen"</span>), <span class='kw'>multiple</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='co'># get all qualifiers of all surveys</span>
+<span class='no'>allqualifiers</span> <span class='kw'>&lt;-</span> <span class='fu'>inboveg_qualifiers</span>(<span class='no'>con</span>)
+
+<span class='co'># Close the connection when done</span>
+<span class='fu'>dbDisconnect</span>(<span class='no'>con</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span>(<span class='no'>con</span>)
+<span class='co'># }</span><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#value">Value</a></li>
+
       <li><a href="#see-also">See also</a></li>
-          </ul>
-
-    <h2>Author</h2>
-    <p><strong>Maintainer</strong>: Hans Van Calster <a href='mailto:hans.vancalster@inbo.be'>hans.vancalster@inbo.be</a> (0000-0001-8595-8426)</p>
-<p>Authors:</p><ul>
-<li><p>Damiano Oldoni <a href='mailto:damiano.oldoni@inbo.be'>damiano.oldoni@inbo.be</a> (0000-0003-3445-7562)</p></li>
-<li><p>Stijn Van Hoey <a href='mailto:stijnvanhoey@gmail.com'>stijnvanhoey@gmail.com</a> (0000-0001-6413-3185)</p></li>
-</ul>
-
-<p>Other contributors:</p><ul>
-<li><p>Dimitri Brosens <a href='mailto:dimitri.brosens@inbo.be'>dimitri.brosens@inbo.be</a> (0000-0002-0846-9116) [contributor]</p></li>
-<li><p>Peter Desmet <a href='mailto:peter.desmet@inbo.be'>peter.desmet@inbo.be</a> (0000-0002-8442-8025) [contributor]</p></li>
-<li><p>Frank Huysentruyt <a href='mailto:frank.huysentruyt@inbo.be'>frank.huysentruyt@inbo.be</a> (0000-0002-3071-9126) [contributor]</p></li>
-<li><p>Thierry Onkelinx <a href='mailto:thierry.onkelinx@inbo.be'>thierry.onkelinx@inbo.be</a> (0000-0001-8804-4216) [contributor]</p></li>
-<li><p>Floris Vanderhaeghe <a href='mailto:floris.vanderhaeghe@inbo.be'>floris.vanderhaeghe@inbo.be</a> (0000-0002-6378-6229) [contributor]</p></li>
-<li><p>Pieter Verschelde <a href='mailto:pieter.verschelde@inbo.be'>pieter.verschelde@inbo.be</a> (0000-0002-9199-421X) [contributor]</p></li>
-<li><p>Els De Bie <a href='mailto:els.debie@inbo.be'>els.debie@inbo.be</a> (0000-0001-7679-743X) [contributor]</p></li>
-<li><p>Research Institute for Nature and Forest (INBO) <a href='mailto:info@inbo.be'>info@inbo.be</a> [copyright holder]</p></li>
-</ul>
-
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
