@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Example data.frame with KNMI downloaded data — rain_knmi_2012 • inborutils</title>
+<title>Get data from a Zenodo archive — download_zenodo • inborutils</title>
 
 
 <!-- jquery -->
@@ -35,9 +35,10 @@
 
 
 
-<meta property="og:title" content="Example data.frame with KNMI downloaded data — rain_knmi_2012" />
-<meta property="og:description" content="A dataset containing the rainfall from January 1st till February 1st for
-Vlissingen and Westdorpe, as downloaded from KNMI" />
+<meta property="og:title" content="Get data from a Zenodo archive — download_zenodo" />
+<meta property="og:description" content="This function will download data from Zenodo (https://zenodo.org).
+It only works for Zenodo created DOI (not when the DOI is for
+example derived from Zookeys.)" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -124,38 +125,56 @@ Vlissingen and Westdorpe, as downloaded from KNMI" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Example data.frame with KNMI downloaded data</h1>
-    <small class="dont-index">Source: <a href='https://github.com/inbo/inborutils/blob/master/R/data.R'><code>R/data.R</code></a></small>
-    <div class="hidden name"><code>rain_knmi_2012.Rd</code></div>
+    <h1>Get data from a Zenodo archive</h1>
+    <small class="dont-index">Source: <a href='https://github.com/inbo/inborutils/blob/master/R/download_zenodo.R'><code>R/download_zenodo.R</code></a></small>
+    <div class="hidden name"><code>download_zenodo.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A dataset containing the rainfall from January 1st till February 1st for
-Vlissingen and Westdorpe, as downloaded from KNMI</p>
+    <p>This function will download data from Zenodo (<a href='https://zenodo.org'>https://zenodo.org</a>).
+It only works for Zenodo created DOI (not when the DOI is for
+example derived from Zookeys.)</p>
     </div>
 
-    <pre class="usage"><span class='no'>rain_knmi_2012</span></pre>
+    <pre class="usage"><span class='fu'>download_zenodo</span>(<span class='no'>path</span>, <span class='no'>doi</span>)</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>path</th>
+      <td><p>local path to where the data need to be written</p></td>
+    </tr>
+    <tr>
+      <th>doi</th>
+      <td><p>a doi pointer to the Zenodo archive starting with '10.5281/zenodo.'. See examples.</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data frame with 1536 rows and 9 variables:</p><ul>
-<li><p>value: measured value</p></li>
-<li><p>datetime: datetime of the measurement</p></li>
-<li><p>unit: unit (mm)</p></li>
-<li><p>variable_name: precipitation</p></li>
-<li><p>longitude: coordinate</p></li>
-<li><p>latitude: coordinate</p></li>
-<li><p>location_name: station name</p></li>
-<li><p>source_filename: filename from which the data was read</p></li>
-<li><p>quality_code: empty string as KNMI does not provide this</p></li>
-</ul>
+    <p>Downloaded file(s) in the specified folder.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
+    <div class='dont-index'><p>Other download: <code><a href='download_knmi_data_hour.html'>download_knmi_data_hour</a></code></p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='co'># Single zip file deposition</span>
+<span class='fu'>download_zenodo</span>(<span class='st'>"."</span>, <span class='st'>"10.5281/zenodo.1283345"</span>)
+<span class='co'># Multiple files deposition</span>
+<span class='fu'>download_zenodo</span>(<span class='st'>"."</span>, <span class='st'>"10.5281/zenodo.1172801"</span>)
+<span class='co'># Single pdf file deposition</span>
+<span class='fu'>download_zenodo</span>(<span class='st'>"."</span>, <span class='st'>"10.5281/zenodo.168478"</span>)
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#format">Format</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
+      <li><a href="#see-also">See also</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
