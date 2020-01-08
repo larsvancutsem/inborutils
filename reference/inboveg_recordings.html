@@ -188,7 +188,7 @@ OrignalName, ScientificName, PhenologyCode, CoverageCode, PctValue
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='no'>con</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>connect_inbo_dbase</a></span>(<span class='st'>"D0010_00_Cydonia"</span>)
 
-<span class='co'># get the relevÃ©s from one survey and collect the data</span>
+<span class='co'># get the relevés from one survey and collect the data</span>
 <span class='no'>recording_heischraal2012</span> <span class='kw'>&lt;-</span> <span class='fu'>inboveg_recordings</span>(<span class='no'>con</span>, <span class='kw'>survey_name</span> <span class='kw'>=</span>
 <span class='st'>"MILKLIM_Heischraal2012"</span>, <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
@@ -201,7 +201,7 @@ OrignalName, ScientificName, PhenologyCode, CoverageCode, PctValue
 <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"MILKLIM_Heischraal2012"</span>, <span class='st'>"NICHE Vlaanderen"</span>), <span class='kw'>multiple</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
 <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='co'># get all relevÃ©s of all surveys,  don't collect the data</span>
+<span class='co'># get all relevés of all surveys,  don't collect the data</span>
 <span class='no'>allrecordings</span> <span class='kw'>&lt;-</span> <span class='fu'>inboveg_recordings</span>(<span class='no'>con</span>)
 
 <span class='co'># Close the connection when done</span>
