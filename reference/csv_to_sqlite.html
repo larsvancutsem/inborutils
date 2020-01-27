@@ -73,7 +73,7 @@ to learn more about." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">inborutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9065</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9067</span>
       </span>
     </div>
 
@@ -140,9 +140,16 @@ memory. See the INBO tutorial <a href='https://github.com/inbo/tutorials/blob/ma
 to learn more about.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>csv_to_sqlite</span>(<span class='no'>csv_file</span>, <span class='no'>sqlite_file</span>, <span class='no'>table_name</span>, <span class='kw'>delim</span> <span class='kw'>=</span> <span class='st'>","</span>,
-  <span class='kw'>pre_process_size</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>chunk_size</span> <span class='kw'>=</span> <span class='fl'>50000</span>,
-  <span class='kw'>show_progress_bar</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>csv_to_sqlite</span>(
+  <span class='no'>csv_file</span>,
+  <span class='no'>sqlite_file</span>,
+  <span class='no'>table_name</span>,
+  <span class='kw'>delim</span> <span class='kw'>=</span> <span class='st'>","</span>,
+  <span class='kw'>pre_process_size</span> <span class='kw'>=</span> <span class='fl'>1000</span>,
+  <span class='kw'>chunk_size</span> <span class='kw'>=</span> <span class='fl'>50000</span>,
+  <span class='kw'>show_progress_bar</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

@@ -71,7 +71,7 @@ example derived from Zookeys.)" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">inborutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9065</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9067</span>
       </span>
     </div>
 
@@ -136,7 +136,7 @@ It only works for Zenodo created DOI (not when the DOI is for
 example derived from Zookeys.)</p>
     </div>
 
-    <pre class="usage"><span class='fu'>download_zenodo</span>(<span class='no'>doi</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>)</pre>
+    <pre class="usage"><span class='fu'>download_zenodo</span>(<span class='no'>doi</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>parallel</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -150,22 +150,30 @@ example derived from Zookeys.)</p>
       <td><p>Path where the data must be downloaded.
 Defaults to the working directory.</p></td>
     </tr>
+    <tr>
+      <th>parallel</th>
+      <td><p>Logical (<code>FALSE</code> by default).
+If <code>TRUE</code>, will run a number of parallel processes, each downloading
+another file.
+This is useful when multiple large files are present in the Zenodo
+record, which otherwise would be downloaded sequentially.
+Of course, the operation is limited by bandwidth and traffic limitations.</p></td>
+    </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>Downloaded file(s) in the specified folder.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other download: <code><a href='download_knmi_data_hour.html'>download_knmi_data_hour</a></code></p></div>
+    <div class='dont-index'><p>Other download functions: 
+<code><a href='download_knmi_data_hour.html'>download_knmi_data_hour</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'># Example download of an archive containing a single zip</span>
 <span class='fu'>download_zenodo</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.5281/zenodo.1283345"</span>)
 <span class='co'># Example download of an archive containing multiple files</span>
-<span class='co'># (all files will be downloaded)</span>
-<span class='fu'>download_zenodo</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.5281/zenodo.1172801"</span>)
+<span class='co'># using parallel download</span>
+<span class='co'># (multiple files will be simultaneously downloaded)</span>
+<span class='fu'>download_zenodo</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.5281/zenodo.1172801"</span>, <span class='kw'>parallel</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 <span class='co'># Example download of an archive containing a single pdf file</span>
 <span class='fu'>download_zenodo</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.5281/zenodo.168478"</span>)
 }</div></pre>
@@ -174,7 +182,6 @@ Defaults to the working directory.</p></td>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
       <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>

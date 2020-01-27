@@ -71,7 +71,7 @@ which need to be an available column in the dataframe." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">inborutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9065</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9067</span>
       </span>
     </div>
 
@@ -136,9 +136,13 @@ by the GBIF taxonomic backbone and matched on the species (scientific) name,
 which need to be an available column in the dataframe.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>gbif_species_name_match</span>(<span class='no'>df</span>, <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"name"</span>, <span class='kw'>gbif_terms</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"usageKey"</span>,
-  <span class='st'>"scientificName"</span>, <span class='st'>"rank"</span>, <span class='st'>"order"</span>, <span class='st'>"matchType"</span>, <span class='st'>"phylum"</span>, <span class='st'>"kingdom"</span>,
-  <span class='st'>"genus"</span>, <span class='st'>"class"</span>, <span class='st'>"confidence"</span>, <span class='st'>"synonym"</span>, <span class='st'>"status"</span>, <span class='st'>"family"</span>), <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>gbif_species_name_match</span>(
+  <span class='no'>df</span>,
+  <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"name"</span>,
+  <span class='kw'>gbif_terms</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"usageKey"</span>, <span class='st'>"scientificName"</span>, <span class='st'>"rank"</span>, <span class='st'>"order"</span>, <span class='st'>"matchType"</span>, <span class='st'>"phylum"</span>,
+    <span class='st'>"kingdom"</span>, <span class='st'>"genus"</span>, <span class='st'>"class"</span>, <span class='st'>"confidence"</span>, <span class='st'>"synonym"</span>, <span class='st'>"status"</span>, <span class='st'>"family"</span>),
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -156,15 +160,15 @@ used for the name matching with the GBIF taxonomic backbone. Default:
     <tr>
       <th>gbif_terms</th>
       <td><p>list of valid GBIF terms to add as additional columns to
-the data.frame. Default: 'usageKey', 'scientificName', 'rank',
-'order', 'matchType', 'phylum', 'kingdom', 'genus', 'class',
-'confidence', 'synonym', 'status', 'family'.</p></td>
+the data.frame. Default: \'usageKey\', \'scientificName\', \'rank\',
+\'order\', \'matchType\', \'phylum\', \'kingdom\', \'genus\', \'class\',
+\'confidence\', \'synonym\', \'status\', \'family\'.</p></td>
     </tr>
     <tr>
       <th>...</th>
       <td><p>any parameter to pass to rgbif function <code>name_bakbone</code>. One of:
-'rank', 'kingdom', 'phylum', 'class', 'order', 'family',
-'genus', 'strict', 'verbose', 'start', 'limit', 'curlopts'. See
+\'rank\', \'kingdom\', \'phylum\', \'class\', \'order\', \'family\',
+\'genus\', \'strict\', \'verbose\', \'start\', \'limit\', \'curlopts\'. See
 <code>?name_backbone</code> for more details.</p></td>
     </tr>
     </table>
@@ -172,8 +176,8 @@ the data.frame. Default: 'usageKey', 'scientificName', 'rank',
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>a tibble data.frame with GBIF information as additional columns. If
-none of the taxa in  <code>df</code> is matched, only the columns 'confidence',
-'matchType' and 'synonym' are added. This behavior is inherited by
+none of the taxa in  <code>df</code> is matched, only the columns \'confidence\',
+\'matchType\' and \'synonym\' are added. This behavior is inherited by
 <code><a href='https://docs.ropensci.org/rgbif/reference/name_backbone.html'>rgbif::name_backbone</a></code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 

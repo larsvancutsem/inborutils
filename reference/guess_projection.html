@@ -75,7 +75,7 @@ Custom projections can be provided by the user as well." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">inborutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9065</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9067</span>
       </span>
     </div>
 
@@ -143,9 +143,14 @@ projections on a map to make comparison possible. The main function is
 Custom projections can be provided by the user as well.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>guess_projection</span>(<span class='no'>df</span>, <span class='no'>col_long</span>, <span class='no'>col_lat</span>, <span class='kw'>belgium</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>projections</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"epsg:4326"</span>, <span class='st'>"epsg:31370"</span>, <span class='st'>"epsg:28992"</span>, <span class='st'>"epsg:32631"</span>,
-  <span class='st'>"epsg:3812"</span>, <span class='st'>"epsg:3035"</span>))</pre>
+    <pre class="usage"><span class='fu'>guess_projection</span>(
+  <span class='no'>df</span>,
+  <span class='no'>col_long</span>,
+  <span class='no'>col_lat</span>,
+  <span class='kw'>belgium</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>projections</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"epsg:4326"</span>, <span class='st'>"epsg:31370"</span>, <span class='st'>"epsg:28992"</span>, <span class='st'>"epsg:32631"</span>, <span class='st'>"epsg:3812"</span>,
+    <span class='st'>"epsg:3035"</span>)
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
