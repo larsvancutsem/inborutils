@@ -1,8 +1,11 @@
 pandoc: '2.2'
-pkgdown: 1.4.1.9000
-pkgdown_sha: 134033d9d744c548c6fbe297bc0fbd1a2f498e83
+pkgdown: 1.4.1
+pkgdown_sha: ~
 articles:
   data_loaders_examples: data_loaders_examples.html
   gbif_name_match: gbif_name_match.html
   guess_projection: guess_projection.html
+urls:
+  reference: https://inbo.github.io/inborutils/reference
+  article: https://inbo.github.io/inborutils/articles
 
