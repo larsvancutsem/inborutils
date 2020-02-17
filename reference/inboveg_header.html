@@ -72,7 +72,7 @@ information for all surveys." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">inborutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9069</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9072</span>
       </span>
     </div>
 
@@ -173,7 +173,8 @@ environment.</p></td>
 
     <p>A remote tbl object (collect = FALSE) or a tibble dataframe (collect
 = TRUE) with variables RecordingGivid, Name, UserReference, LocationCode,
-Latitude, Longitude, Area (in m2), Length (in cm), Width (in cm), SurveyId, RecTypeID.</p>
+Latitude, Longitude, Area (in m2), Length (in cm), Width (in cm), VagueDateType,
+VagueDateBegin, VagueDateEnd, SurveyId, RecTypeID.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other inboveg: 
@@ -183,7 +184,21 @@ Latitude, Longitude, Area (in m2), Length (in cm), Width (in cm), SurveyId, RecT
 <code><a href='inboveg_survey.html'>inboveg_survey</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"></pre>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='no'>con</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>connect_inbo_dbase</a></span>(<span class='st'>"D0010_00_Cydonia"</span>)
+
+<span class='co'># get header information from a specific survey and a specific recording type</span>
+<span class='co'># and collect the data</span>
+<span class='no'>header_info</span> <span class='kw'>&lt;-</span> <span class='fu'>inboveg_header</span>(<span class='no'>con</span>, <span class='kw'>survey_name</span> <span class='kw'>=</span> <span class='st'>"OudeLanden_1979"</span>,
+<span class='kw'>rec_type</span> <span class='kw'>=</span> <span class='st'>"Classic"</span>, <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='co'># get header information of all surveys,  don't collect the data</span>
+<span class='no'>all_header_info</span> <span class='kw'>&lt;-</span> <span class='fu'>inboveg_header</span>(<span class='no'>con</span>)
+
+<span class='co'># close the connection when done</span>
+<span class='fu'>dbDisconnect</span>(<span class='no'>con</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span>(<span class='no'>con</span>)
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
