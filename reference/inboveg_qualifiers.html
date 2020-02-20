@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Query qualifier information of recordings (relevé) from INBOVEG — inboveg_qualifiers • inborutils</title>
+<title>Query qualifier information of recordings (releve) from INBOVEG — inboveg_qualifiers • inborutils</title>
 
 
 <!-- jquery -->
@@ -35,7 +35,7 @@
 
 
 
-<meta property="og:title" content="Query qualifier information of recordings (relevé) from INBOVEG — inboveg_qualifiers" />
+<meta property="og:title" content="Query qualifier information of recordings (releve) from INBOVEG — inboveg_qualifiers" />
 <meta property="og:description" content="This function queries the INBOVEG database for
 qualifier information on recordings  for one or more surveys." />
 <meta name="twitter:card" content="summary" />
@@ -124,7 +124,7 @@ qualifier information on recordings  for one or more surveys." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Query qualifier information of recordings (relevé) from INBOVEG</h1>
+    <h1>Query qualifier information of recordings (releve) from INBOVEG</h1>
     <small class="dont-index">Source: <a href='https://github.com/inbo/inborutils/blob/master/R/inboveg_qualifiers.R'><code>R/inboveg_qualifiers.R</code></a></small>
     <div class="hidden name"><code>inboveg_qualifiers.Rd</code></div>
     </div>
@@ -134,7 +134,7 @@ qualifier information on recordings  for one or more surveys." />
 qualifier information on recordings  for one or more surveys.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>inboveg_qualifiers</span>(<span class='no'>connection</span>, <span class='no'>survey_name</span>, <span class='kw'>multiple</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>inboveg_qualifiers</span>(<span class='no'>connection</span>, <span class='no'>survey_name</span>, <span class='no'>qualifier_type</span>, <span class='kw'>multiple</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -148,15 +148,21 @@ on the inbo-sql07-prd server</p></td>
       <th>survey_name</th>
       <td><p>A character string or a character vector, depending on
 multiple parameter, giving the name or names of the
-survey(s) for which you want to extract relevé information. If missing, all
+survey(s) for which you want to extract recordings information. If missing, all
 surveys are returned.</p></td>
+    </tr>
+    <tr>
+      <th>qualifier_type</th>
+      <td><p>A character vector giving the name of qualifier type for which
+you want to extract  information e.g. 'SQ' (site qualifier), 'MQ' (management qualifier).
+If missing, all qualifier types are returned.</p></td>
     </tr>
     <tr>
       <th>multiple</th>
       <td><p>If TRUE, survey_name can take a character vector with
 multiple survey names that must match exactly. If FALSE (the default),
 survey_name must be a single character string (one survey name) that can
-include wildcarts to allow partial matches</p></td>
+include wildcards to allow partial matches</p></td>
     </tr>
     </table>
 
@@ -182,8 +188,9 @@ qualifier is 'NotSure', ParentID, QualifierResource</p>
 <span class='no'>qualifiers_heischraal2012</span> <span class='kw'>&lt;-</span> <span class='fu'>inboveg_qualifiers</span>(<span class='no'>con</span>, <span class='kw'>survey_name</span> <span class='kw'>=</span>
 <span class='st'>"MILKLIM_Heischraal2012"</span>)
 
-<span class='co'># get all qualifiers from MILKLIM surveys (partial matching)</span>
-<span class='no'>qualifiers_milkim</span> <span class='kw'>&lt;-</span> <span class='fu'>inboveg_qualifiers</span>(<span class='no'>con</span>, <span class='kw'>survey_name</span> <span class='kw'>=</span> <span class='st'>"%MILKLIM%"</span>)
+<span class='co'># get all site qualifiers (SQ) from MILKLIM surveys (partial matching)</span>
+<span class='no'>qualifiers_milkim</span> <span class='kw'>&lt;-</span> <span class='fu'>inboveg_qualifiers2</span>(<span class='no'>con</span>, <span class='kw'>survey_name</span> <span class='kw'>=</span> <span class='st'>"%MILKLIM%"</span>,
+<span class='kw'>qualifier_type</span> <span class='kw'>=</span> <span class='st'>"SQ"</span>)
 
 <span class='co'># get qualifiers from several specific surveys</span>
 <span class='no'>qualifiers_severalsurveys</span> <span class='kw'>&lt;-</span> <span class='fu'>inboveg_qualifiers</span>(<span class='no'>con</span>, <span class='kw'>survey_name</span> <span class='kw'>=</span>

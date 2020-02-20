@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Query recording (relevé) information from INBOVEG — inboveg_recordings • inborutils</title>
+<title>Query recording (releve) information from INBOVEG — inboveg_recordings • inborutils</title>
 
 
 <!-- jquery -->
@@ -35,9 +35,9 @@
 
 
 
-<meta property="og:title" content="Query recording (relevé) information from INBOVEG — inboveg_recordings" />
+<meta property="og:title" content="Query recording (releve) information from INBOVEG — inboveg_recordings" />
 <meta property="og:description" content="This function queries the INBOVEG database for
-relevé information (which species were recorded in which plots and in which
+releve information (which species were recorded in which plots and in which
 vegetation layers with which cover) for one or more surveys." />
 <meta name="twitter:card" content="summary" />
 
@@ -125,14 +125,14 @@ vegetation layers with which cover) for one or more surveys." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Query recording (relevé) information from INBOVEG</h1>
+    <h1>Query recording (releve) information from INBOVEG</h1>
     <small class="dont-index">Source: <a href='https://github.com/inbo/inborutils/blob/master/R/inboveg_recordings.R'><code>R/inboveg_recordings.R</code></a></small>
     <div class="hidden name"><code>inboveg_recordings.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>This function queries the INBOVEG database for
-relevé information (which species were recorded in which plots and in which
+releve information (which species were recorded in which plots and in which
 vegetation layers with which cover) for one or more surveys.</p>
     </div>
 
@@ -150,7 +150,7 @@ on the inbo-sql07-prd server</p></td>
       <th>survey_name</th>
       <td><p>A character string or a character vector, depending on
 multiple parameter, giving the name or names of the
-survey(s) for which you want to extract relevé information. If missing, all
+survey(s) for which you want to extract releve information. If missing, all
 surveys are returned.</p></td>
     </tr>
     <tr>
@@ -174,7 +174,7 @@ include wildcarts to allow partial matches</p></td>
 
     <p>A remote tbl object (collect = FALSE) or a tibble dataframe (collect
 = TRUE) with variables RecordingGivid (uniek Id), LayerCode, CoverCode,
-OrignalName, ScientificName, PhenologyCode, CoverageCode, PctValue
+OriginalName, ScientificName, PhenologyCode, CoverageCode, PctValue
 (percentage coverage), RecordingScale (name of the scale of coverage)</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -188,7 +188,7 @@ OrignalName, ScientificName, PhenologyCode, CoverageCode, PctValue
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='no'>con</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>connect_inbo_dbase</a></span>(<span class='st'>"D0010_00_Cydonia"</span>)
 
-<span class='co'># get the relevés from one survey and collect the data</span>
+<span class='co'># get the recordings from one survey and collect the data</span>
 <span class='no'>recording_heischraal2012</span> <span class='kw'>&lt;-</span> <span class='fu'>inboveg_recordings</span>(<span class='no'>con</span>, <span class='kw'>survey_name</span> <span class='kw'>=</span>
 <span class='st'>"MILKLIM_Heischraal2012"</span>, <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
@@ -201,7 +201,7 @@ OrignalName, ScientificName, PhenologyCode, CoverageCode, PctValue
 <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"MILKLIM_Heischraal2012"</span>, <span class='st'>"NICHE Vlaanderen"</span>), <span class='kw'>multiple</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
 <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='co'># get all relevés of all surveys,  don't collect the data</span>
+<span class='co'># get all recordings of all surveys,  don't collect the data</span>
 <span class='no'>allrecordings</span> <span class='kw'>&lt;-</span> <span class='fu'>inboveg_recordings</span>(<span class='no'>con</span>)
 
 <span class='co'># Close the connection when done</span>

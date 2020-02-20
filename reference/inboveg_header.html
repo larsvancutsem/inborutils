@@ -37,9 +37,8 @@
 
 <meta property="og:title" content="Query header information from INBOVEG — inboveg_header" />
 <meta property="og:description" content="This function queries the INBOVEG database for header
-information (metadata for a vegetation-relevé) for one survey by the name
-of the survey and the recorder type. See the examples for how to get
-information for all surveys." />
+information (metadata for a vegetation-recording or releve) for one or more surveys and
+the recorder type. See the examples for how to get information for all surveys." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -133,12 +132,17 @@ information for all surveys." />
 
     <div class="ref-description">
     <p>This function queries the INBOVEG database for header
-information (metadata for a vegetation-relevé) for one survey by the name
-of the survey and the recorder type. See the examples for how to get
-information for all surveys.</p>
+information (metadata for a vegetation-recording or releve) for one or more surveys and
+the recorder type. See the examples for how to get information for all surveys.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>inboveg_header</span>(<span class='no'>connection</span>, <span class='no'>survey_name</span>, <span class='no'>rec_type</span>, <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>inboveg_header</span>(
+  <span class='no'>connection</span>,
+  <span class='no'>survey_name</span>,
+  <span class='no'>rec_type</span>,
+  <span class='kw'>multiple</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -150,14 +154,22 @@ on the inbo-sql07-prd server</p></td>
     </tr>
     <tr>
       <th>survey_name</th>
-      <td><p>A character vector giving the name of the survey for which
-you want to extract header information. If missing, all surveys are returned.</p></td>
+      <td><p>A character string or a character vector
+giving the name or names of the survey(s) for which you want to extract header information.
+If missing, all surveys are returned.</p></td>
     </tr>
     <tr>
       <th>rec_type</th>
       <td><p>A character vector giving the name of record type for which
 you want to extract header information e.g. 'Classic', 'Classic-emmer',
 'Classic-ketting', 'BioHab', 'ABS'. If missing, all recording types are returned.</p></td>
+    </tr>
+    <tr>
+      <th>multiple</th>
+      <td><p>If TRUE, survey_name can take a character vector with
+multiple survey names that must match exactly. If FALSE (the default),
+survey_name must be a single character string (one survey name) that can
+include wildcards to allow partial matches</p></td>
     </tr>
     <tr>
       <th>collect</th>
@@ -172,7 +184,7 @@ environment.</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A remote tbl object (collect = FALSE) or a tibble dataframe (collect
-= TRUE) with variables RecordingGivid, Name, UserReference, LocationCode,
+= TRUE) with variables RecordingGivid, Name, UserReference, Observer, LocationCode,
 Latitude, Longitude, Area (in m2), Length (in cm), Width (in cm), VagueDateType,
 VagueDateBegin, VagueDateEnd, SurveyId, RecTypeID.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -191,6 +203,10 @@ VagueDateBegin, VagueDateEnd, SurveyId, RecTypeID.</p>
 <span class='co'># and collect the data</span>
 <span class='no'>header_info</span> <span class='kw'>&lt;-</span> <span class='fu'>inboveg_header</span>(<span class='no'>con</span>, <span class='kw'>survey_name</span> <span class='kw'>=</span> <span class='st'>"OudeLanden_1979"</span>,
 <span class='kw'>rec_type</span> <span class='kw'>=</span> <span class='st'>"Classic"</span>, <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='co'># get header information from several specific surveys</span>
+<span class='no'>header_severalsurveys</span> <span class='kw'>&lt;-</span> <span class='fu'>inboveg_header</span>(<span class='no'>con</span>, <span class='kw'>survey_name</span> <span class='kw'>=</span>
+<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"MILKLIM_Heischraal2012"</span>, <span class='st'>"NICHE Vlaanderen"</span>), <span class='kw'>multiple</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='co'># get header information of all surveys,  don't collect the data</span>
 <span class='no'>all_header_info</span> <span class='kw'>&lt;-</span> <span class='fu'>inboveg_header</span>(<span class='no'>con</span>)
