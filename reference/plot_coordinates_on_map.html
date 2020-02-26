@@ -37,7 +37,7 @@
 
 <meta property="og:title" content="Plot x/y coordinates on a map — plot_coordinates_on_map" />
 <meta property="og:description" content="This function plots x/y coordinates from a data.frame on a (leaflet) map. The
-coordinates are first converted to GWS84 in order to map them correctly on
+coordinates are first converted to WGS84 in order to map them correctly on
 the leaflet map (@seealso reproject_coordinates()). To do this, the
 original Coordinate Reference System (CRS) is asked." />
 <meta name="twitter:card" content="summary" />
@@ -133,7 +133,7 @@ original Coordinate Reference System (CRS) is asked." />
 
     <div class="ref-description">
     <p>This function plots x/y coordinates from a data.frame on a (leaflet) map. The
-coordinates are first converted to GWS84 in order to map them correctly on
+coordinates are first converted to WGS84 in order to map them correctly on
 the leaflet map (@seealso <code><a href='reproject_coordinates.html'>reproject_coordinates()</a></code>). To do this, the
 original Coordinate Reference System (CRS) is asked.</p>
     </div>
@@ -152,7 +152,7 @@ original Coordinate Reference System (CRS) is asked.</p>
       <td><p>Column names or positions of the x (longitude) and y
 (latitude) column. They are passed to <code><a href='https://tidyselect.r-lib.org/reference/vars_pull.html'>vars_pull</a></code>.
 These arguments are passed by expression and support
-<code><a href='https://rlang.r-lib.org/reference/nse-force.html'>quasiquotation</a></code> (you can unquote column names or column
+<code>quasiquotation</code> (you can unquote column names or column
 positions).</p></td>
     </tr>
     <tr>
@@ -163,7 +163,7 @@ crs-class (<code>sf</code> objects) defining the current projection.</p></td>
     <tr>
       <th>...</th>
       <td><p>Additional arguments passed on to
-<code><a href='https://rdrr.io/pkg/leaflet/man/map-layers.html'>addCircleMarkers</a></code> to customize points.</p></td>
+<code>addCircleMarkers</code> to customize points.</p></td>
     </tr>
     </table>
 
