@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get data from a Zenodo archive — download_zenodo • inborutils</title>
+<title>Human-readable binary file size — human_filesize • inborutils</title>
 
 
 <!-- jquery -->
@@ -35,10 +35,12 @@
 
 
 
-<meta property="og:title" content="Get data from a Zenodo archive — download_zenodo" />
-<meta property="og:description" content="This function will download an entire archive from Zenodo (https://zenodo.org).
-It only works for Zenodo created DOI (not when the DOI is for
-example derived from Zookeys.)" />
+<meta property="og:title" content="Human-readable binary file size — human_filesize" />
+<meta property="og:description" content="Takes an integer (referring to number of bytes) and returns an optimally
+human-readable
+binary-prefixed
+byte size (KiB, MiB, GiB, TiB, PiB, EiB).
+The function is vectorised." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -125,70 +127,45 @@ example derived from Zookeys.)" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get data from a Zenodo archive</h1>
+    <h1>Human-readable binary file size</h1>
     <small class="dont-index">Source: <a href='https://github.com/inbo/inborutils/blob/master/R/download_zenodo.R'><code>R/download_zenodo.R</code></a></small>
-    <div class="hidden name"><code>download_zenodo.Rd</code></div>
+    <div class="hidden name"><code>human_filesize.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function will download an entire archive from Zenodo (<a href='https://zenodo.org'>https://zenodo.org</a>).
-It only works for Zenodo created DOI (not when the DOI is for
-example derived from Zookeys.)</p>
+    <p>Takes an integer (referring to number of bytes) and returns an optimally
+human-readable
+<a href='https://en.wikipedia.org/wiki/Binary_prefix'>binary-prefixed</a>
+byte size (KiB, MiB, GiB, TiB, PiB, EiB).
+The function is vectorised.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>download_zenodo</span>(<span class='no'>doi</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>parallel</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>human_filesize</span>(<span class='no'>x</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>doi</th>
-      <td><p>a doi pointer to the Zenodo archive starting with '10.5281/zenodo.'. See examples.</p></td>
-    </tr>
-    <tr>
-      <th>path</th>
-      <td><p>Path where the data must be downloaded.
-Defaults to the working directory.</p></td>
-    </tr>
-    <tr>
-      <th>parallel</th>
-      <td><p>Logical (<code>FALSE</code> by default).
-If <code>TRUE</code>, will run a number of parallel processes, each downloading
-another file.
-This is useful when multiple large files are present in the Zenodo
-record, which otherwise would be downloaded sequentially.
-Of course, the operation is limited by bandwidth and traffic limitations.</p></td>
-    </tr>
-    <tr>
-      <th>quiet</th>
-      <td><p>Logical (<code>FALSE</code> by default).
-Do you want to suppress informative messages (not warnings)?</p></td>
+      <th>x</th>
+      <td><p>A positive integer, i.e. the number of bytes (B).
+Can be a vector of file sizes.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <div class='dont-index'><p>Other download functions: 
-<code><a href='download_knmi_data_hour.html'>download_knmi_data_hour</a>()</code></p></div>
+    <p>A character vector.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='co'># Example download of an archive containing a single zip</span>
-<span class='fu'>download_zenodo</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.5281/zenodo.1283345"</span>)
-<span class='fu'>download_zenodo</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.5281/zenodo.1283345"</span>, <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='co'># Example download of an archive containing multiple files</span>
-<span class='co'># using parallel download</span>
-<span class='co'># (multiple files will be simultaneously downloaded)</span>
-<span class='fu'>download_zenodo</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.5281/zenodo.1172801"</span>, <span class='kw'>parallel</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='co'># Example download of an archive containing a single pdf file</span>
-<span class='fu'>download_zenodo</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.5281/zenodo.168478"</span>)
-}</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>human_filesize</span>(<span class='fl'>7845691</span>)</div><div class='output co'>#&gt; [1] "7.5 MiB"</div><div class='input'><span class='no'>v</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>12345</span>, <span class='fl'>456987745621258</span>)
+<span class='fu'>human_filesize</span>(<span class='no'>v</span>)</div><div class='output co'>#&gt; [1] "12.1 KiB"  "415.6 TiB"</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#see-also">See also</a></li>
+      <li><a href="#value">Value</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 
