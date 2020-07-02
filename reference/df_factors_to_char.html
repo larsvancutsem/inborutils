@@ -73,7 +73,7 @@ character vectors" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">inborutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9081</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9086</span>
       </span>
     </div>
 
@@ -153,7 +153,22 @@ character vectors</p>
     <p>all credits to Thierry Onkelinx</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>df_factors_to_char</span>(<span class='no'>PlantGrowth</span>) <span class='co'># column group will be chars as well</span></div><div class='output co'>#&gt;    weight group
+    <pre class="examples"><div class='input'><span class='fu'>df_factors_to_char</span>(<span class='no'>PlantGrowth</span>) <span class='co'># column group will be chars as well</span></div><div class='output co'>#&gt; <span class='warning'>Warning: `mutate_each_()` is deprecated as of dplyr 0.7.0.</span>
+#&gt; <span class='warning'>Please use `across()` instead.</span>
+#&gt; <span class='warning'>This warning is displayed once every 8 hours.</span>
+#&gt; <span class='warning'>Call `lifecycle::last_warnings()` to see where this warning was generated.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: `funs()` is deprecated as of dplyr 0.8.0.</span>
+#&gt; <span class='warning'>Please use a list of either functions or lambdas: </span>
+#&gt; <span class='warning'></span>
+#&gt; <span class='warning'>  # Simple named list: </span>
+#&gt; <span class='warning'>  list(mean = mean, median = median)</span>
+#&gt; <span class='warning'></span>
+#&gt; <span class='warning'>  # Auto named with `tibble::lst()`: </span>
+#&gt; <span class='warning'>  tibble::lst(mean, median)</span>
+#&gt; <span class='warning'></span>
+#&gt; <span class='warning'>  # Using lambdas</span>
+#&gt; <span class='warning'>  list(~ mean(., trim = .2), ~ median(., na.rm = TRUE))</span>
+#&gt; <span class='warning'>This warning is displayed once every 8 hours.</span>
+#&gt; <span class='warning'>Call `lifecycle::last_warnings()` to see where this warning was generated.</span></div><div class='output co'>#&gt;    weight group
 #&gt; 1    4.17  ctrl
 #&gt; 2    5.58  ctrl
 #&gt; 3    5.18  ctrl

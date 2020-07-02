@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">inborutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9081</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9086</span>
       </span>
     </div>
 
@@ -127,7 +127,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Convert encoding of character and factor variables in a dataframe</h1>
-    <small class="dont-index">Source: <a href='https://github.com/inbo/inborutils/blob/master/R/encode_df_sf.R'><code>R/encode_df_sf.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/inbo/inborutils/blob/master/R/convertdf_enc.R'><code>R/convertdf_enc.R</code></a></small>
     <div class="hidden name"><code>convertdf_enc.Rd</code></div>
     </div>
 
@@ -135,15 +135,15 @@
     <p>Convert encoding of character and factor variables in a dataframe</p>
     </div>
 
-    <pre class="usage"><span class='fu'>convertdf_enc</span>(<span class='no'>x</span>, <span class='kw'>from</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>to</span> <span class='kw'>=</span> <span class='st'>"UTF-8"</span>, <span class='kw'>sub</span> <span class='kw'>=</span> <span class='fl'>NA</span>)</pre>
+    <pre class="usage"><span class='fu'>convertdf_enc</span>(<span class='no'>x</span>, <span class='kw'>from</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>to</span> <span class='kw'>=</span> <span class='st'>"UTF-8"</span>, <span class='kw'>sub</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>colnames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A dataframe or an object (such as <code>sf</code>) with the <code>data.frame</code>
-class</p></td>
+      <td><p>An object with the <code>data.frame</code>
+class (such as <code>data.frame</code> or <code>sf</code>)</p></td>
     </tr>
     <tr>
       <th>from</th>
@@ -160,6 +160,10 @@ class</p></td>
     single character, but can be more.)  If <code>"byte"</code>, the indication is
     <code>"&lt;xx&gt;"</code> with the hex code of the byte.  If <code>"Unicode"</code>
     and converting from UTF-8, the Unicode point in the form <code>"&lt;U+xxxx&gt;"</code>.</p></td>
+    </tr>
+    <tr>
+      <th>colnames</th>
+      <td><p>Should column names be converted as well?</p></td>
     </tr>
     </table>
 
