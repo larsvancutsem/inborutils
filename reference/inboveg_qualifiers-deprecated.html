@@ -137,8 +137,8 @@ qualifier information on recordings  for one or more surveys." />
 qualifier information on recordings  for one or more surveys.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='inborutils-deprecated.html'>inboveg_qualifiers</a></span>(<span class='no'>connection</span>, <span class='no'>survey_name</span>, <span class='no'>qualifier_type</span>,
-  <span class='kw'>multiple</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'><a href='connect_inbo_dbase.html'>inboveg_qualifiers</a></span>(<span class='kw'>connection</span>, <span class='kw'>survey_name</span>, <span class='kw'>qualifier_type</span>,
+  multiple = <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -178,7 +178,7 @@ Observer, QualifierType, QualifierCode, Description, 2nd QualifierCode,
 qualifier is 'NotSure', ParentID, QualifierResource</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='inborutils-deprecated.html'>inborutils-deprecated</a></code></p>
+    <div class='dont-index'><p><code><a href='connect_inbo_dbase.html'>inborutils-deprecated</a></code></p>
 <p>Other inboveg: 
 <code><a href='inboveg_classification-deprecated.html'>inboveg_classification-deprecated</a></code>,
 <code><a href='inboveg_header-deprecated.html'>inboveg_header-deprecated</a></code>,
@@ -186,28 +186,30 @@ qualifier is 'NotSure', ParentID, QualifierResource</p>
 <code><a href='inboveg_survey-deprecated.html'>inboveg_survey-deprecated</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>con</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='inborutils-deprecated.html'>connect_inbo_dbase</a></span>(<span class='st'>"D0010_00_Cydonia"</span>)
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='kw'>con</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>connect_inbo_dbase</a></span>(<span class='st'>"D0010_00_Cydonia"</span>)
 
 <span class='co'># get the qualifiers from one survey</span>
-<span class='no'>qualifiers_heischraal2012</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='inborutils-deprecated.html'>inboveg_qualifiers</a></span>(<span class='no'>con</span>, <span class='kw'>survey_name</span> <span class='kw'>=</span>
+<span class='kw'>qualifiers_heischraal2012</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>inboveg_qualifiers</a></span>(<span class='kw'>con</span>, survey_name =
 <span class='st'>"MILKLIM_Heischraal2012"</span>)
 
 <span class='co'># get all site qualifiers (SQ) from MILKLIM surveys (partial matching)</span>
-<span class='no'>qualifiers_milkim</span> <span class='kw'>&lt;-</span> <span class='fu'>inboveg_qualifiers2</span>(<span class='no'>con</span>, <span class='kw'>survey_name</span> <span class='kw'>=</span> <span class='st'>"%MILKLIM%"</span>,
-<span class='kw'>qualifier_type</span> <span class='kw'>=</span> <span class='st'>"SQ"</span>)
+<span class='kw'>qualifiers_milkim</span> <span class='op'>&lt;-</span> <span class='fu'>inboveg_qualifiers2</span>(<span class='kw'>con</span>, survey_name = <span class='st'>"%MILKLIM%"</span>,
+qualifier_type = <span class='st'>"SQ"</span>)
 
 <span class='co'># get qualifiers from several specific surveys</span>
-<span class='no'>qualifiers_severalsurveys</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='inborutils-deprecated.html'>inboveg_qualifiers</a></span>(<span class='no'>con</span>, <span class='kw'>survey_name</span> <span class='kw'>=</span>
-<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"MILKLIM_Heischraal2012"</span>, <span class='st'>"NICHE Vlaanderen"</span>), <span class='kw'>multiple</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='kw'>qualifiers_severalsurveys</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>inboveg_qualifiers</a></span>(<span class='kw'>con</span>, survey_name =
+<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"MILKLIM_Heischraal2012"</span>, <span class='st'>"NICHE Vlaanderen"</span>), multiple = <span class='fl'>TRUE</span>)
 
 <span class='co'># get all qualifiers of all surveys</span>
-<span class='no'>allqualifiers</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='inborutils-deprecated.html'>inboveg_qualifiers</a></span>(<span class='no'>con</span>)
+<span class='kw'>allqualifiers</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>inboveg_qualifiers</a></span>(<span class='kw'>con</span>)
 
 <span class='co'># Close the connection when done</span>
-<span class='fu'>dbDisconnect</span>(<span class='no'>con</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span>(<span class='no'>con</span>)
-}</div></pre>
+<span class='fu'>dbDisconnect</span>(<span class='kw'>con</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span>(<span class='kw'>con</span>)
+}
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -223,7 +225,7 @@ qualifier is 'NotSure', ParentID, QualifierResource</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

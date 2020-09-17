@@ -143,7 +143,7 @@ The function queries the florabank, and returns a dataframe with observation
 level information about the matching taxa.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='inborutils-deprecated.html'>florabank_observations</a></span>(<span class='no'>connection</span>, <span class='no'>names</span>, <span class='kw'>fixed</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'><a href='connect_inbo_dbase.html'>florabank_observations</a></span>(<span class='kw'>connection</span>, <span class='kw'>names</span>, fixed = <span class='fl'>FALSE</span>, collect = <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -182,57 +182,59 @@ environment.</p></td>
 "WaarnemingID", "X_waarneming", "Y_waarneming", "X_meting", "Y_meting"</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='inborutils-deprecated.html'>inborutils-deprecated</a></code></p>
+    <div class='dont-index'><p><code><a href='connect_inbo_dbase.html'>inborutils-deprecated</a></code></p>
 <p>Other florabank: 
 <code><a href='florabank_taxon_ifbl_year-deprecated.html'>florabank_taxon_ifbl_year-deprecated</a></code>,
 <code><a href='florabank_traits-deprecated.html'>florabank_traits-deprecated</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'># code can only be run if a connection to the database is possible</span>
 <span class='co'># connect to florabank</span>
-<span class='no'>db_connectie</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='inborutils-deprecated.html'>connect_inbo_dbase</a></span>(<span class='st'>"D0021_00_userFlora"</span>)
+<span class='kw'>db_connectie</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>connect_inbo_dbase</a></span>(<span class='st'>"D0021_00_userFlora"</span>)
 
 <span class='co'># query and collect the data using scientific name</span>
-<span class='no'>succprat1</span> <span class='kw'>&lt;-</span>    <span class='fu'><a href='inborutils-deprecated.html'>florabank_observations</a></span>(<span class='no'>db_connectie</span>,
-<span class='kw'>names</span> <span class='kw'>=</span> <span class='st'>'Succisa pratensis Moench'</span>, <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='kw'>succprat1</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='connect_inbo_dbase.html'>florabank_observations</a></span>(<span class='kw'>db_connectie</span>,
+names = <span class='st'>'Succisa pratensis Moench'</span>, collect = <span class='fl'>TRUE</span>)
 
 <span class='co'># the same species but using Dutch name</span>
-<span class='no'>succprat2</span> <span class='kw'>&lt;-</span>    <span class='fu'><a href='inborutils-deprecated.html'>florabank_observations</a></span>(<span class='no'>db_connectie</span>,
-<span class='kw'>names</span> <span class='kw'>=</span> <span class='st'>'Blauwe knoop'</span>, <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='kw'>succprat2</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='connect_inbo_dbase.html'>florabank_observations</a></span>(<span class='kw'>db_connectie</span>,
+names = <span class='st'>'Blauwe knoop'</span>, collect = <span class='fl'>TRUE</span>)
 
 <span class='co'># providing both a Dutch name and scientific name will not duplicate records</span>
 <span class='co'># if they are the same species</span>
-<span class='no'>succprat3</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='inborutils-deprecated.html'>florabank_observations</a></span>(<span class='no'>db_connectie</span>,
-<span class='kw'>names</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Succisa pratensis Moench"</span>, <span class='st'>"Blauwe knoop"</span>), <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='kw'>succprat3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>florabank_observations</a></span>(<span class='kw'>db_connectie</span>,
+names = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Succisa pratensis Moench"</span>, <span class='st'>"Blauwe knoop"</span>), collect = <span class='fl'>TRUE</span>)
 
-<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='no'>succprat1</span>, <span class='no'>succprat2</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='no'>succprat1</span>, <span class='no'>succprat3</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='kw'>succprat1</span>, <span class='kw'>succprat2</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='kw'>succprat1</span>, <span class='kw'>succprat3</span>)
 
 <span class='co'># passing dutch names and scientific names for different species</span>
 <span class='co'># is possible (records for each species is returned)</span>
-<span class='no'>myspecies1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='inborutils-deprecated.html'>florabank_observations</a></span>(<span class='no'>db_connectie</span>,
-<span class='kw'>names</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'Succisa pratensis Moench'</span>, <span class='st'>'Gevlekte orchis'</span>), <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='kw'>myspecies1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>florabank_observations</a></span>(<span class='kw'>db_connectie</span>,
+names = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'Succisa pratensis Moench'</span>, <span class='st'>'Gevlekte orchis'</span>), collect = <span class='fl'>TRUE</span>)
 
 <span class='co'># passing multiple dutch names</span>
-<span class='no'>myspecies2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='inborutils-deprecated.html'>florabank_observations</a></span>(<span class='no'>db_connectie</span>,
-<span class='kw'>names</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'Gevlekte orchis'</span>, <span class='st'>'Blauwe knoop'</span>),
-<span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='kw'>myspecies2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>florabank_observations</a></span>(<span class='kw'>db_connectie</span>,
+names = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'Gevlekte orchis'</span>, <span class='st'>'Blauwe knoop'</span>),
+collect = <span class='fl'>TRUE</span>)
 
-<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='no'>myspecies1</span>, <span class='no'>myspecies2</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='kw'>myspecies1</span>, <span class='kw'>myspecies2</span>)
 
 <span class='co'># using default for collect will return a lazy query</span>
 <span class='co'># fixed = TRUE for exact matches only</span>
-<span class='no'>myspecies3</span> <span class='kw'>&lt;-</span>   <span class='fu'><a href='inborutils-deprecated.html'>florabank_observations</a></span>(<span class='no'>db_connectie</span>,
-<span class='kw'>names</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'Succisa pratensis Moench'</span>, <span class='st'>'Gevlekte orchis'</span>),
-<span class='kw'>fixed</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='kw'>myspecies3</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='connect_inbo_dbase.html'>florabank_observations</a></span>(<span class='kw'>db_connectie</span>,
+names = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'Succisa pratensis Moench'</span>, <span class='st'>'Gevlekte orchis'</span>),
+fixed = <span class='fl'>TRUE</span>)
 
 <span class='co'># to collect the data for a lazy query you can also use the collect() function:</span>
-<span class='no'>myspecies3</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/compute.html'>collect</a></span>(<span class='no'>myspecies3</span>)
+<span class='kw'>myspecies3</span> <span class='op'>&lt;-</span> <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/compute.html'>collect</a></span>(<span class='kw'>myspecies3</span>)
 
 <span class='co'># disconnect from florabank</span>
-<span class='fu'>dbDisconnect</span>(<span class='no'>db_connectie</span>)
-}</div></pre>
+<span class='fu'>dbDisconnect</span>(<span class='kw'>db_connectie</span>)
+}
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -248,7 +250,7 @@ environment.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

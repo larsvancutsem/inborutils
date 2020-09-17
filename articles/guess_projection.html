@@ -91,7 +91,7 @@
       <h1 data-toc-skip>Check coordinate system</h1>
                         <h4 class="author">Stijn Van Hoey</h4>
             
-            <h4 class="date">2020-08-21</h4>
+            <h4 class="date">2020-09-17</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/inbo/inborutils/blob/master/vignettes/guess_projection.Rmd"><code>vignettes/guess_projection.Rmd</code></a></small>
       <div class="hidden name"><code>guess_projection.Rmd</code></div>
@@ -118,7 +118,9 @@
 <a href="#dependencies" class="anchor"></a>Dependencies</h3>
 <p>In order to run the functionalities, some R packags need to be installed. The set of required libraries is handled by the <code>inborutils</code> package itself.</p>
 <p>Loading the functionality can be done by loading the <code>inborutils</code> package:</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">inborutils</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/inbo/inborutils">inborutils</a></span>)
+</pre></div>
 </div>
 <div id="projection-function" class="section level3">
 <h3 class="hasAnchor">
@@ -131,8 +133,10 @@
 <li>the latitude column name.</li>
 </ol>
 <p>For example:</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="co"># my_dataframe has the columns "longitude" and "latitude"</span>
-<span class="fu"><a href="../reference/guess_projection.html">guess_projection</a></span>(<span class="no">coordinate_example</span>, <span class="st">"longitude"</span>, <span class="st">"latitude"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="co"># my_dataframe has the columns "longitude" and "latitude"</span>
+<span class="fu"><a href="../reference/guess_projection.html">guess_projection</a></span>(<span class="kw">coordinate_example</span>, <span class="st">"longitude"</span>, <span class="st">"latitude"</span>)
+</pre></div>
 <pre><code>## Warning in reproject_coordinates(df, col_long, col_lat, CRS(paste("+init=", :
 ## Input projection equal to output projection. No reprojection performed.</code></pre>
 <div id="htmlwidget-2acbdcee57df88857ad7" style="width:672px;height:432.632880098888px;" class="leaflet html-widget"></div>
@@ -147,8 +151,10 @@
 <li><code>epsg:3035</code></li>
 </ul>
 <p>Which can be overridden by adapting the <code>projections</code> argument:</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="../reference/guess_projection.html">guess_projection</a></span>(<span class="no">coordinate_example</span>, <span class="st">"longitude"</span>, <span class="st">"latitude"</span>, <span class="kw">belgium</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
-                 <span class="kw">projections</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"epsg:2000"</span>, <span class="st">"epsg:2805"</span>, <span class="st">"epsg:4326"</span>))</pre></body></html></div>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="fu"><a href="../reference/guess_projection.html">guess_projection</a></span>(<span class="kw">coordinate_example</span>, <span class="st">"longitude"</span>, <span class="st">"latitude"</span>, belgium = <span class="fl">TRUE</span>, 
+                 projections = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"epsg:2000"</span>, <span class="st">"epsg:2805"</span>, <span class="st">"epsg:4326"</span>))
+</pre></div>
 <pre><code>## Warning in reproject_coordinates(df, col_long, col_lat, CRS(paste("+init=", :
 ## Input projection equal to output projection. No reprojection performed.</code></pre>
 <div id="htmlwidget-dcca1c2448063a48b268" style="width:672px;height:432.632880098888px;" class="leaflet html-widget"></div>
@@ -172,7 +178,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

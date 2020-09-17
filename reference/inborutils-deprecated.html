@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Deprecated functions in package <span class="pkg">inborutils</span> — connect_inbo_dbase • inborutils</title>
+<title>Deprecated functions in package inborutils — connect_inbo_dbase • inborutils</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Deprecated functions in package <span class="pkg">inborutils</span> — connect_inbo_dbase" />
+<meta property="og:title" content="Deprecated functions in package inborutils — connect_inbo_dbase" />
 <meta property="og:description" content="The functions listed below are moved to package inbodb
 and deprecated in inborutils. They will be defunct here in the near
 future. Help pages for deprecated functions are available at
@@ -141,35 +141,35 @@ future. Help pages for deprecated functions are available at
 <code>help("&lt;function&gt;-deprecated")</code></p>
     </div>
 
-    <pre class="usage"><span class='fu'>connect_inbo_dbase</span>(<span class='no'>database_name</span>)
+    <pre class="usage"><span class='fu'>connect_inbo_dbase</span>(<span class='kw'>database_name</span>)
 
-<span class='fu'>florabank_traits</span>(<span class='no'>connection</span>, <span class='no'>trait_name</span>, <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>florabank_traits</span>(<span class='kw'>connection</span>, <span class='kw'>trait_name</span>, collect = <span class='fl'>FALSE</span>)
 
-<span class='fu'>florabank_observations</span>(<span class='no'>connection</span>, <span class='no'>names</span>, <span class='kw'>fixed</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>florabank_observations</span>(<span class='kw'>connection</span>, <span class='kw'>names</span>, fixed = <span class='fl'>FALSE</span>, collect = <span class='fl'>FALSE</span>)
 
 <span class='fu'>florabank_taxon_ifbl_year</span>(
-  <span class='no'>connection</span>,
-  <span class='kw'>starting_year</span> <span class='kw'>=</span> <span class='fl'>2010</span>,
-  <span class='kw'>ifbl_resolution</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"1km-by-1km"</span>, <span class='st'>"4km-by-4km"</span>),
-  <span class='kw'>taxongroup</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Vaatplanten"</span>, <span class='st'>"Mossen"</span>, <span class='st'>"Lichenen (korstmossen)"</span>, <span class='st'>"Kranswieren"</span>),
-  <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+  <span class='kw'>connection</span>,
+  starting_year = <span class='fl'>2010</span>,
+  ifbl_resolution = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"1km-by-1km"</span>, <span class='st'>"4km-by-4km"</span>),
+  taxongroup = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Vaatplanten"</span>, <span class='st'>"Mossen"</span>, <span class='st'>"Lichenen (korstmossen)"</span>, <span class='st'>"Kranswieren"</span>),
+  collect = <span class='fl'>FALSE</span>
 )
 
-<span class='fu'>inboveg_classification</span>(<span class='no'>connection</span>, <span class='no'>survey_name</span>, <span class='no'>classif</span>, <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>inboveg_classification</span>(<span class='kw'>connection</span>, <span class='kw'>survey_name</span>, <span class='kw'>classif</span>, collect = <span class='fl'>FALSE</span>)
 
 <span class='fu'>inboveg_header</span>(
-  <span class='no'>connection</span>,
-  <span class='no'>survey_name</span>,
-  <span class='no'>rec_type</span>,
-  <span class='kw'>multiple</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+  <span class='kw'>connection</span>,
+  <span class='kw'>survey_name</span>,
+  <span class='kw'>rec_type</span>,
+  multiple = <span class='fl'>FALSE</span>,
+  collect = <span class='fl'>FALSE</span>
 )
 
-<span class='fu'>inboveg_qualifiers</span>(<span class='no'>connection</span>, <span class='no'>survey_name</span>, <span class='no'>qualifier_type</span>, <span class='kw'>multiple</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>inboveg_qualifiers</span>(<span class='kw'>connection</span>, <span class='kw'>survey_name</span>, <span class='kw'>qualifier_type</span>, multiple = <span class='fl'>FALSE</span>)
 
-<span class='fu'>inboveg_recordings</span>(<span class='no'>connection</span>, <span class='no'>survey_name</span>, <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>multiple</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>inboveg_recordings</span>(<span class='kw'>connection</span>, <span class='kw'>survey_name</span>, collect = <span class='fl'>FALSE</span>, multiple = <span class='fl'>FALSE</span>)
 
-<span class='fu'>inboveg_survey</span>(<span class='no'>connection</span>, <span class='no'>survey_name</span>, <span class='kw'>collect</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+<span class='fu'>inboveg_survey</span>(<span class='kw'>connection</span>, <span class='kw'>survey_name</span>, collect = <span class='fl'>FALSE</span>)</pre>
 
 
     <h2 class="hasAnchor" id="connect-inbo-dbase"><a class="anchor" href="#connect-inbo-dbase"></a>connect_inbo_dbase</h2>
@@ -233,7 +233,7 @@ future. Help pages for deprecated functions are available at
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

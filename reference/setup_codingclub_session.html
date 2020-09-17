@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Query survey information from INBOVEG — inboveg_survey-deprecated • inborutils</title>
+<title>Download files (code and data) for a specific coding club session — setup_codingclub_session • inborutils</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,11 @@
 
 
 
-<meta property="og:title" content="Query survey information from INBOVEG — inboveg_survey-deprecated" />
-<meta property="og:description" content="This function queries the INBOVEG database for survey information
-(metadata about surveys) for one or more survey(s) by the name of the survey.
-See the examples for how to get information for all surveys." />
+<meta property="og:title" content="Download files (code and data) for a specific coding club session — setup_codingclub_session" />
+<meta property="og:description" content="This function will populate the content of /src and /data
+directories for a specific coding club session, the date of which is passed
+as a parameter. Directories are created if needed. Files are downloaded
+if not already present." />
 
 
 
@@ -128,69 +129,73 @@ See the examples for how to get information for all surveys." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Query survey information from INBOVEG</h1>
-    <small class="dont-index">Source: <a href='https://github.com/inbo/inborutils/blob/master/R/inboveg_survey.R'><code>R/inboveg_survey.R</code></a></small>
-    <div class="hidden name"><code>inboveg_survey-deprecated.Rd</code></div>
+    <h1>Download files (code and data) for a specific coding club session</h1>
+    <small class="dont-index">Source: <a href='https://github.com/inbo/inborutils/blob/master/R/setup_codingclub_session.R'><code>R/setup_codingclub_session.R</code></a></small>
+    <div class="hidden name"><code>setup_codingclub_session.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function queries the INBOVEG database for survey information
-(metadata about surveys) for one or more survey(s) by the name of the survey.
-See the examples for how to get information for all surveys.</p>
+    <p>This function will populate the content of /src and /data
+directories for a specific coding club session, the date of which is passed
+as a parameter. Directories are created if needed. Files are downloaded
+if not already present.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='connect_inbo_dbase.html'>inboveg_survey</a></span>(<span class='kw'>connection</span>, <span class='kw'>survey_name</span>, collect = <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>setup_codingclub_session</span>(
+  session_date = <span class='fu'><a href='https://rdrr.io/r/base/format.html'>format</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span>(), <span class='st'>"%Y%m%d"</span>),
+  root_dir = <span class='st'>"."</span>,
+  src_rel_path = <span class='st'>"src"</span>,
+  data_rel_path = <span class='st'>"data"</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>survey_name</th>
-      <td><p>A character vector giving the names of the surveys for
-which you want to extract survey information.</p></td>
+      <th>session_date</th>
+      <td><p>The date of the coding-club session, in the "YYYYMMDD"
+format. Default: actual date</p></td>
     </tr>
     <tr>
-      <th>connection</th>
-      <td><p>dbconnection with the database 'Cydonia'
-on the inbo-sql07-prd server</p></td>
+      <th>root_dir</th>
+      <td><p>Root directory where source and data subdirectories are
+located. Default: <code>./</code></p></td>
     </tr>
     <tr>
-      <th>collect</th>
-      <td><p>If FALSE (the default), a remote tbl object is returned. This
-is like a reference to the result of the query but the full result of the
-query is not brought into memory. If TRUE the full result of the query is
-collected (fetched) from the database and brought into memory of the working
-environment.</p></td>
+      <th>src_rel_path</th>
+      <td><p>Relative path for R script(s). Default: <code>src</code></p></td>
+    </tr>
+    <tr>
+      <th>data_rel_path</th>
+      <td><p>Relative path for data files. Default: <code>data</code></p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>A remote tbl object (collect = FALSE) or a tibble dataframe (collect
-= TRUE) with variables Id, Name, Description, Owner and Creator.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='connect_inbo_dbase.html'>inborutils-deprecated</a></code></p>
-<p>Other inboveg: 
-<code><a href='inboveg_classification-deprecated.html'>inboveg_classification-deprecated</a></code>,
-<code><a href='inboveg_header-deprecated.html'>inboveg_header-deprecated</a></code>,
-<code><a href='inboveg_qualifiers-deprecated.html'>inboveg_qualifiers-deprecated</a></code>,
-<code><a href='inboveg_recordings-deprecated.html'>inboveg_recordings-deprecated</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='kw'>con</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>connect_inbo_dbase</a></span>(<span class='st'>"D0010_00_Cydonia"</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/inbo/inborutils'>inborutils</a></span>)
 
-<span class='co'># get information of a specific survey and collect data</span>
-<span class='kw'>survey_info</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>inboveg_survey</a></span>(<span class='kw'>con</span>, survey_name = <span class='st'>"OudeLanden_1979"</span>,
-collect = <span class='fl'>TRUE</span>)
+<span class='co'># Download coding club files for session 2020-02-25</span>
+<span class='co'># R script(s) in `./src/20200225` and data files in `./data/20200225`</span>
+<span class='fu'>setup_codingclub_session</span>(<span class='st'>"20200225"</span>)
 
-<span class='co'># get information of all surveys and collect data</span>
-<span class='kw'>allsurveys</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>inboveg_survey</a></span>(<span class='kw'>con</span>)
+<span class='co'># Specify the folders where you want to save R files and data files</span>
+<span class='co'># R files will be downloaded in `./source`</span>
+<span class='co'># Data files will be downloaded in `./dataframes`</span>
+<span class='fu'>setup_codingclub_session</span>(
+  <span class='st'>"20200225"</span>,
+  src_rel_path = <span class='st'>"source"</span>,
+  data_rel_path = <span class='st'>"dataframes"</span>
+)
 
-<span class='co'># Close the connection when done</span>
-<span class='fu'>dbDisconnect</span>(<span class='kw'>con</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span>(<span class='kw'>con</span>)
+<span class='co'># You can modify the root directory even if it should be normally not needed.</span>
+<span class='co'># For example you want to move the root to the parent directory, `../`</span>
+<span class='fu'>setup_codingclub_session</span>(<span class='st'>"20200225"</span>,
+  root_dir = <span class='st'>"../"</span>,
+  src_rel_path = <span class='st'>"source"</span>,
+  data_rel_path = <span class='st'>"dataframes"</span>
+)
 }
 
 </div></pre>

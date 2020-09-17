@@ -89,7 +89,7 @@
                         <h4 class="author">Stijn Vanhoey</h4>
                         <h4 class="author">Damiano Oldoni</h4>
             
-            <h4 class="date">2020-08-21</h4>
+            <h4 class="date">2020-09-17</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/inbo/inborutils/blob/master/vignettes/gbif_name_match.Rmd"><code>vignettes/gbif_name_match.Rmd</code></a></small>
       <div class="hidden name"><code>gbif_name_match.Rmd</code></div>
@@ -113,9 +113,13 @@
 <a href="#functionality" class="anchor"></a>Functionality</h2>
 <p>The <code>gbif_species_name_match</code> function extends the matching function provided by <a href="https://github.com/ropensci/rgbif">rgbif</a> to be compatible with a <code>data.frame</code> data structure.</p>
 <p>Loading the functionality can be done by loading the <code>inborutils</code> package:</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">inborutils</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/inbo/inborutils">inborutils</a></span>)
+</pre></div>
 <p>Consider the example data set <code>species_example</code>:</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="kw pkg">knitr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(<span class="no">species_example</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="kw">knitr</span>::<span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(<span class="kw">species_example</span>)
+</pre></div>
 <table class="table">
 <thead><tr class="header">
 <th align="left">speciesName</th>
@@ -141,13 +145,17 @@
 </tbody>
 </table>
 <p>To add the species information, using the <code>scientificName</code> column, and the default fields:</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">my_data_update</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/gbif_species_name_match.html">gbif_species_name_match</a></span>(<span class="no">species_example</span>,
-                                          <span class="kw">name</span> <span class="kw">=</span> <span class="st">"speciesName"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="kw">my_data_update</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gbif_species_name_match.html">gbif_species_name_match</a></span>(<span class="kw">species_example</span>, 
+                                          name = <span class="st">"speciesName"</span>)
+</pre></div>
 <pre><code>## [1] "All column names present"</code></pre>
 <pre><code>## New names:
 ## * kingdom -&gt; kingdom...2
 ## * kingdom -&gt; kingdom...10</code></pre>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="kw pkg">knitr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(<span class="no">my_data_update</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb6"><pre class="downlit">
+<span class="kw">knitr</span>::<span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(<span class="kw">my_data_update</span>)
+</pre></div>
 <table class="table">
 <colgroup>
 <col width="11%">
@@ -243,12 +251,16 @@
 </tbody>
 </table>
 <p>When not satisfied by the default fields provided ´(‘usageKey’,‘scientificName’,‘rank’,‘order’,‘matchType’,‘phylum’, ‘kingdom’,‘genus’, ‘class’,‘confidence’, ‘synonym’, ‘status’,‘family’)´, you can alter these by the <code>gbif_terms</code> argument, for example:</p>
-<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">gbif_terms_to_use</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'canonicalName'</span>, <span class="st">'order'</span>)
-<span class="no">my_data_update</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/gbif_species_name_match.html">gbif_species_name_match</a></span>(<span class="no">species_example</span>,
-                                              <span class="kw">name</span> <span class="kw">=</span> <span class="st">"speciesName"</span> ,
-                                              <span class="kw">gbif_terms</span> <span class="kw">=</span> <span class="no">gbif_terms_to_use</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb7"><pre class="downlit">
+<span class="kw">gbif_terms_to_use</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'canonicalName'</span>, <span class="st">'order'</span>)
+<span class="kw">my_data_update</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gbif_species_name_match.html">gbif_species_name_match</a></span>(<span class="kw">species_example</span>, 
+                                              name = <span class="st">"speciesName"</span> , 
+                                              gbif_terms = <span class="kw">gbif_terms_to_use</span>)
+</pre></div>
 <pre><code>## [1] "All column names present"</code></pre>
-<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="kw pkg">knitr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(<span class="no">my_data_update</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb9"><pre class="downlit">
+<span class="kw">knitr</span>::<span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(<span class="kw">my_data_update</span>)
+</pre></div>
 <table class="table">
 <colgroup>
 <col width="27%">
@@ -289,18 +301,22 @@
 </tbody>
 </table>
 <p>If the name of a GBIF field is already in use as column name in your data.frame, the suffix number <code>1</code> is added and a warning is returned. For example:</p>
-<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="no">df</span> <span class="kw">&lt;-</span> <span class="no">species_example</span>
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">df</span>) <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"scientificName"</span>, <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">species_example</span>)[<span class="fl">2</span>:<span class="fl">3</span>])
-<span class="no">gbif_terms_to_use</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'scientificName'</span>, <span class="st">'order'</span>)
-<span class="no">my_data_update</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/gbif_species_name_match.html">gbif_species_name_match</a></span>(<span class="no">df</span>,
-                                          <span class="kw">name</span> <span class="kw">=</span> <span class="st">"scientificName"</span> ,
-                                          <span class="kw">gbif_terms</span> <span class="kw">=</span> <span class="no">gbif_terms_to_use</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb10"><pre class="downlit">
+<span class="kw">df</span> <span class="op">&lt;-</span> <span class="kw">species_example</span>
+<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="kw">df</span>) <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"scientificName"</span>, <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="kw">species_example</span>)[<span class="fl">2</span><span class="op">:</span><span class="fl">3</span>])
+<span class="kw">gbif_terms_to_use</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'scientificName'</span>, <span class="st">'order'</span>)
+<span class="kw">my_data_update</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gbif_species_name_match.html">gbif_species_name_match</a></span>(<span class="kw">df</span>,
+                                          name = <span class="st">"scientificName"</span> , 
+                                          gbif_terms = <span class="kw">gbif_terms_to_use</span>)
+</pre></div>
 <pre><code>## [1] "All column names present"</code></pre>
 <pre><code>## Warning in gbif_species_name_match(df, name = "scientificName", gbif_terms
 ## = gbif_terms_to_use): Column with names 'scientificName' is also one
 ## of the returned gbif_terms. GBIF column name is authomatically recalled
 ## 'scientificName1'.</code></pre>
-<div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="kw pkg">knitr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(<span class="no">my_data_update</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb13"><pre class="downlit">
+<span class="kw">knitr</span>::<span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(<span class="kw">my_data_update</span>)
+</pre></div>
 <table class="table">
 <colgroup>
 <col width="23%">
@@ -341,12 +357,16 @@
 </tbody>
 </table>
 <p>Sometimes, a scientific name can occur in different kingdoms, the so-called <em>hemihomonyms</em>. To avoid a taxon being misidentified, it is then sometimes useful to specify kingdom it belongs to. You could also add other taxonomic related parameters such as rank, family or genus. It is also possible to pass other not taxonomic related parameters, e.g. <code>strict</code> which allows more control on the match behavior. For more information about all parameters accepted by GBIF, see documentation on <a href="https://www.gbif.org/developer/species#searching">GBIF match</a>.</p>
-<div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="no">my_data_update</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/gbif_species_name_match.html">gbif_species_name_match</a></span>(<span class="no">species_example</span>,
-                                          <span class="kw">name</span> <span class="kw">=</span> <span class="st">"speciesName"</span>,
-                                          <span class="kw">kingdom</span> <span class="kw">=</span> <span class="st">"kingdom"</span>,
-                                          <span class="kw">strict</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb14"><pre class="downlit">
+<span class="kw">my_data_update</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gbif_species_name_match.html">gbif_species_name_match</a></span>(<span class="kw">species_example</span>, 
+                                          name = <span class="st">"speciesName"</span>,
+                                          kingdom = <span class="st">"kingdom"</span>,
+                                          strict = <span class="fl">TRUE</span>)
+</pre></div>
 <pre><code>## [1] "All column names present"</code></pre>
-<div class="sourceCode" id="cb16"><html><body><pre class="r"><span class="kw pkg">knitr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(<span class="no">my_data_update</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb16"><pre class="downlit">
+<span class="kw">knitr</span>::<span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(<span class="kw">my_data_update</span>)
+</pre></div>
 <table class="table">
 <colgroup>
 <col width="11%">
@@ -459,7 +479,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -141,7 +141,7 @@ the leaflet map (@seealso <code><a href='reproject_coordinates.html'>reproject_c
 original Coordinate Reference System (CRS) is asked.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>plot_coordinates_on_map</span>(<span class='no'>df</span>, <span class='no'>col_long</span>, <span class='no'>col_lat</span>, <span class='no'>projection</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>plot_coordinates_on_map</span>(<span class='kw'>df</span>, <span class='kw'>col_long</span>, <span class='kw'>col_lat</span>, <span class='kw'>projection</span>, <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -175,28 +175,30 @@ crs-class (<code>sf</code> objects) defining the current projection.</p></td>
     <p>Leaflet map with coordinates added as dots.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>sf</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>sp</span>)
-<span class='no'>data_pts</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(
-  <span class='kw'>id</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>),
-  <span class='kw'>lat</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>51.23031</span>, <span class='fl'>50.76931</span>, <span class='fl'>50.21439</span>),
-  <span class='kw'>lon</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>5.083980</span>, <span class='fl'>3.829593</span>, <span class='fl'>3.289044</span>),
-  <span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://r-spatial.github.io/sf'>sf</a></span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/edzer/sp'>sp</a></span>)
+<span class='kw'>data_pts</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(
+  id = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>),
+  lat = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>51.23031</span>, <span class='fl'>50.76931</span>, <span class='fl'>50.21439</span>),
+  lon = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>5.083980</span>, <span class='fl'>3.829593</span>, <span class='fl'>3.289044</span>),
+  stringsAsFactors = <span class='fl'>FALSE</span>
 )
 
 <span class='co'># projection is of class CRS-class (sp)</span>
-<span class='no'>proj_crs_sp</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/sp/man/CRS-class.html'>CRS</a></span>(<span class='st'>"+init=epsg:4269"</span>)
-<span class='fu'>plot_coordinates_on_map</span>(<span class='no'>data_pts</span>, <span class='st'>"lon"</span>, <span class='st'>"lat"</span>, <span class='no'>proj_crs_sp</span>)
+<span class='kw'>proj_crs_sp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/sp/man/CRS-class.html'>CRS</a></span>(<span class='st'>"+init=epsg:4269"</span>)
+<span class='fu'>plot_coordinates_on_map</span>(<span class='kw'>data_pts</span>, <span class='st'>"lon"</span>, <span class='st'>"lat"</span>, <span class='kw'>proj_crs_sp</span>)
 
 <span class='co'># projection is of class crs-class (sf)</span>
-<span class='no'>proj_crs_sf</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/sf/man/st_crs.html'>st_crs</a></span>(<span class='st'>"+init=epsg:4269"</span>)
-<span class='fu'>plot_coordinates_on_map</span>(<span class='no'>data_pts</span>, <span class='st'>"lon"</span>, <span class='st'>"lat"</span>, <span class='no'>proj_crs_sf</span>)
+<span class='kw'>proj_crs_sf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/sf/man/st_crs.html'>st_crs</a></span>(<span class='st'>"+init=epsg:4269"</span>)
+<span class='fu'>plot_coordinates_on_map</span>(<span class='kw'>data_pts</span>, <span class='st'>"lon"</span>, <span class='st'>"lat"</span>, <span class='kw'>proj_crs_sf</span>)
 
 <span class='co'># customize circles</span>
-<span class='fu'>plot_coordinates_on_map</span>(<span class='no'>data_pts</span>, <span class='st'>"lon"</span>, <span class='st'>"lat"</span>, <span class='no'>proj_crs_sf</span>,
-  <span class='kw'>radius</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>stroke</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>fillOpacity</span> <span class='kw'>=</span> <span class='fl'>0.75</span>)
-}</div></pre>
+<span class='fu'>plot_coordinates_on_map</span>(<span class='kw'>data_pts</span>, <span class='st'>"lon"</span>, <span class='st'>"lat"</span>, <span class='kw'>proj_crs_sf</span>,
+  radius = <span class='fl'>5</span>, color = <span class='st'>"red"</span>, stroke = <span class='fl'>FALSE</span>, fillOpacity = <span class='fl'>0.75</span>)
+}
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -212,7 +214,7 @@ crs-class (<code>sf</code> objects) defining the current projection.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -137,7 +137,7 @@ character vectors" />
 character vectors</p>
     </div>
 
-    <pre class="usage"><span class='fu'>df_factors_to_char</span>(<span class='no'>rp</span>)</pre>
+    <pre class="usage"><span class='fu'>df_factors_to_char</span>(<span class='kw'>rp</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -153,10 +153,11 @@ character vectors</p>
     <p>all credits to Thierry Onkelinx</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>df_factors_to_char</span>(<span class='no'>PlantGrowth</span>) <span class='co'># column group will be chars as well</span></div><div class='output co'>#&gt; <span class='warning'>Warning: `mutate_each_()` is deprecated as of dplyr 0.7.0.</span>
+    <pre class="examples"><div class='input'><span class='fu'>df_factors_to_char</span>(<span class='kw'>PlantGrowth</span>) <span class='co'># column group will be chars as well</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: `mutate_each_()` is deprecated as of dplyr 0.7.0.</span>
 #&gt; <span class='warning'>Please use `across()` instead.</span>
-#&gt; <span class='warning'>This warning is displayed once every 8 hours.</span>
-#&gt; <span class='warning'>Call `lifecycle::last_warnings()` to see where this warning was generated.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: `funs()` is deprecated as of dplyr 0.8.0.</span>
+#&gt; <span class='warning'><span style='color: #555555;'>This warning is displayed once every 8 hours.</span><span></span>
+#&gt; <span class='warning'></span><span style='color: #555555;'>Call `lifecycle::last_warnings()` to see where this warning was generated.</span><span></span></div><div class='output co'>#&gt; <span class='warning'>Warning: `funs()` is deprecated as of dplyr 0.8.0.</span>
 #&gt; <span class='warning'>Please use a list of either functions or lambdas: </span>
 #&gt; <span class='warning'></span>
 #&gt; <span class='warning'>  # Simple named list: </span>
@@ -167,8 +168,8 @@ character vectors</p>
 #&gt; <span class='warning'></span>
 #&gt; <span class='warning'>  # Using lambdas</span>
 #&gt; <span class='warning'>  list(~ mean(., trim = .2), ~ median(., na.rm = TRUE))</span>
-#&gt; <span class='warning'>This warning is displayed once every 8 hours.</span>
-#&gt; <span class='warning'>Call `lifecycle::last_warnings()` to see where this warning was generated.</span></div><div class='output co'>#&gt;    weight group
+#&gt; <span class='warning'></span><span style='color: #555555;'>This warning is displayed once every 8 hours.</span><span></span>
+#&gt; <span class='warning'></span><span style='color: #555555;'>Call `lifecycle::last_warnings()` to see where this warning was generated.</span><span></span></div><div class='output co'>#&gt;    weight group
 #&gt; 1    4.17  ctrl
 #&gt; 2    5.58  ctrl
 #&gt; 3    5.18  ctrl
@@ -199,7 +200,7 @@ character vectors</p>
 #&gt; 28   6.15  trt2
 #&gt; 29   5.80  trt2
 #&gt; 30   5.26  trt2</div><div class='input'>
-</div></pre>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -215,7 +216,7 @@ character vectors</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -139,7 +139,7 @@ It only works for Zenodo created DOI (not when the DOI is for
 example derived from Zookeys.)</p>
     </div>
 
-    <pre class="usage"><span class='fu'>download_zenodo</span>(<span class='no'>doi</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>parallel</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>download_zenodo</span>(<span class='kw'>doi</span>, path = <span class='st'>"."</span>, parallel = <span class='fl'>FALSE</span>, quiet = <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -173,19 +173,24 @@ Do you want to suppress informative messages (not warnings)?</p></td>
 
     <div class='dont-index'><p>Other download functions: 
 <code><a href='download_knmi_data_hour.html'>download_knmi_data_hour</a>()</code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Hans Van Calster, <a href='mailto:hans.vancalster@inbo.be'>hans.vancalster@inbo.be</a></p>
+<p>Floris Vanderhaeghe, <a href='mailto:floris.vanderhaeghe@inbo.be'>floris.vanderhaeghe@inbo.be</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'># Example download of an archive containing a single zip</span>
-<span class='fu'>download_zenodo</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.5281/zenodo.1283345"</span>)
-<span class='fu'>download_zenodo</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.5281/zenodo.1283345"</span>, <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>download_zenodo</span>(doi = <span class='st'>"10.5281/zenodo.1283345"</span>)
+<span class='fu'>download_zenodo</span>(doi = <span class='st'>"10.5281/zenodo.1283345"</span>, quiet = <span class='fl'>TRUE</span>)
 <span class='co'># Example download of an archive containing multiple files</span>
 <span class='co'># using parallel download</span>
 <span class='co'># (multiple files will be simultaneously downloaded)</span>
-<span class='fu'>download_zenodo</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.5281/zenodo.1172801"</span>, <span class='kw'>parallel</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>download_zenodo</span>(doi = <span class='st'>"10.5281/zenodo.1172801"</span>, parallel = <span class='fl'>TRUE</span>)
 <span class='co'># Example download of an archive containing a single pdf file</span>
-<span class='fu'>download_zenodo</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.5281/zenodo.168478"</span>)
-}</div></pre>
+<span class='fu'>download_zenodo</span>(doi = <span class='st'>"10.5281/zenodo.168478"</span>)
+}
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -201,7 +206,7 @@ Do you want to suppress informative messages (not warnings)?</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
