@@ -75,7 +75,7 @@ if not already present." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">inborutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9086</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -83,7 +83,7 @@ if not already present." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -112,7 +112,7 @@ if not already present." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/inbo/inborutils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -141,12 +141,12 @@ as a parameter. Directories are created if needed. Files are downloaded
 if not already present.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>setup_codingclub_session</span>(
-  session_date = <span class='fu'><a href='https://rdrr.io/r/base/format.html'>format</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span>(), <span class='st'>"%Y%m%d"</span>),
-  root_dir = <span class='st'>"."</span>,
-  src_rel_path = <span class='st'>"src"</span>,
-  data_rel_path = <span class='st'>"data"</span>
-)</pre>
+    <pre class="usage"><span class='fu'>setup_codingclub_session</span><span class='op'>(</span>
+  session_date <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/format.html'>format</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='st'>"%Y%m%d"</span><span class='op'>)</span>,
+  root_dir <span class='op'>=</span> <span class='st'>"."</span>,
+  src_rel_path <span class='op'>=</span> <span class='st'>"src"</span>,
+  data_rel_path <span class='op'>=</span> <span class='st'>"data"</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -173,30 +173,30 @@ located. Default: <code>./</code></p></td>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/inbo/inborutils'>inborutils</a></span>)
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/inbo/inborutils'>inborutils</a></span><span class='op'>)</span>
 
 <span class='co'># Download coding club files for session 2020-02-25</span>
 <span class='co'># R script(s) in `./src/20200225` and data files in `./data/20200225`</span>
-<span class='fu'>setup_codingclub_session</span>(<span class='st'>"20200225"</span>)
+<span class='fu'>setup_codingclub_session</span><span class='op'>(</span><span class='st'>"20200225"</span><span class='op'>)</span>
 
 <span class='co'># Specify the folders where you want to save R files and data files</span>
 <span class='co'># R files will be downloaded in `./source`</span>
 <span class='co'># Data files will be downloaded in `./dataframes`</span>
-<span class='fu'>setup_codingclub_session</span>(
+<span class='fu'>setup_codingclub_session</span><span class='op'>(</span>
   <span class='st'>"20200225"</span>,
-  src_rel_path = <span class='st'>"source"</span>,
-  data_rel_path = <span class='st'>"dataframes"</span>
-)
+  src_rel_path <span class='op'>=</span> <span class='st'>"source"</span>,
+  data_rel_path <span class='op'>=</span> <span class='st'>"dataframes"</span>
+<span class='op'>)</span>
 
 <span class='co'># You can modify the root directory even if it should be normally not needed.</span>
 <span class='co'># For example you want to move the root to the parent directory, `../`</span>
-<span class='fu'>setup_codingclub_session</span>(<span class='st'>"20200225"</span>,
-  root_dir = <span class='st'>"../"</span>,
-  src_rel_path = <span class='st'>"source"</span>,
-  data_rel_path = <span class='st'>"dataframes"</span>
-)
-}
+<span class='fu'>setup_codingclub_session</span><span class='op'>(</span><span class='st'>"20200225"</span>,
+  root_dir <span class='op'>=</span> <span class='st'>"../"</span>,
+  src_rel_path <span class='op'>=</span> <span class='st'>"source"</span>,
+  data_rel_path <span class='op'>=</span> <span class='st'>"dataframes"</span>
+<span class='op'>)</span>
+<span class='op'>}</span>
 
 </div></pre>
   </div>

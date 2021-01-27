@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">inborutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9086</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -80,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -109,7 +109,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/inbo/inborutils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -135,7 +135,7 @@
     <p>Coordinate data is contained in the header of the file</p>
     </div>
 
-    <pre class="usage"><span class='fu'>read_mow_data</span>(<span class='kw'>filename</span>, n_max = <span class='fl'>Inf</span>)</pre>
+    <pre class="usage"><span class='fu'>read_mow_data</span><span class='op'>(</span><span class='va'>filename</span>, n_max <span class='op'>=</span> <span class='cn'>Inf</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -156,11 +156,11 @@
 unit,variable_name, latitude, longitude and source_filename</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'># see vignettes for more examples</span>
-<span class='kw'>file_path</span> <span class='op'>&lt;-</span> <span class='st'>"mow_file.txt"</span>
-<span class='kw'>mow_data</span> <span class='op'>&lt;-</span> <span class='fu'>read_mow_data</span>(<span class='kw'>file_path</span>)
-}
+<span class='va'>file_path</span> <span class='op'>&lt;-</span> <span class='st'>"mow_file.txt"</span>
+<span class='va'>mow_data</span> <span class='op'>&lt;-</span> <span class='fu'>read_mow_data</span><span class='op'>(</span><span class='va'>file_path</span><span class='op'>)</span>
+<span class='op'>}</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -75,7 +75,7 @@ help(&quot;&amp;lt;function&amp;gt;-deprecated&quot;)" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">inborutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9086</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -83,7 +83,7 @@ help(&quot;&amp;lt;function&amp;gt;-deprecated&quot;)" />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -112,7 +112,7 @@ help(&quot;&amp;lt;function&amp;gt;-deprecated&quot;)" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/inbo/inborutils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -141,35 +141,35 @@ future. Help pages for deprecated functions are available at
 <code>help("&lt;function&gt;-deprecated")</code></p>
     </div>
 
-    <pre class="usage"><span class='fu'>connect_inbo_dbase</span>(<span class='kw'>database_name</span>)
+    <pre class="usage"><span class='fu'>connect_inbo_dbase</span><span class='op'>(</span><span class='va'>database_name</span><span class='op'>)</span>
 
-<span class='fu'>florabank_traits</span>(<span class='kw'>connection</span>, <span class='kw'>trait_name</span>, collect = <span class='fl'>FALSE</span>)
+<span class='fu'>florabank_traits</span><span class='op'>(</span><span class='va'>connection</span>, <span class='va'>trait_name</span>, collect <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
-<span class='fu'>florabank_observations</span>(<span class='kw'>connection</span>, <span class='kw'>names</span>, fixed = <span class='fl'>FALSE</span>, collect = <span class='fl'>FALSE</span>)
+<span class='fu'>florabank_observations</span><span class='op'>(</span><span class='va'>connection</span>, <span class='va'>names</span>, fixed <span class='op'>=</span> <span class='cn'>FALSE</span>, collect <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
-<span class='fu'>florabank_taxon_ifbl_year</span>(
-  <span class='kw'>connection</span>,
-  starting_year = <span class='fl'>2010</span>,
-  ifbl_resolution = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"1km-by-1km"</span>, <span class='st'>"4km-by-4km"</span>),
-  taxongroup = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Vaatplanten"</span>, <span class='st'>"Mossen"</span>, <span class='st'>"Lichenen (korstmossen)"</span>, <span class='st'>"Kranswieren"</span>),
-  collect = <span class='fl'>FALSE</span>
-)
+<span class='fu'>florabank_taxon_ifbl_year</span><span class='op'>(</span>
+  <span class='va'>connection</span>,
+  starting_year <span class='op'>=</span> <span class='fl'>2010</span>,
+  ifbl_resolution <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"1km-by-1km"</span>, <span class='st'>"4km-by-4km"</span><span class='op'>)</span>,
+  taxongroup <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Vaatplanten"</span>, <span class='st'>"Mossen"</span>, <span class='st'>"Lichenen (korstmossen)"</span>, <span class='st'>"Kranswieren"</span><span class='op'>)</span>,
+  collect <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span>
 
-<span class='fu'>inboveg_classification</span>(<span class='kw'>connection</span>, <span class='kw'>survey_name</span>, <span class='kw'>classif</span>, collect = <span class='fl'>FALSE</span>)
+<span class='fu'>inboveg_classification</span><span class='op'>(</span><span class='va'>connection</span>, <span class='va'>survey_name</span>, <span class='va'>classif</span>, collect <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
-<span class='fu'>inboveg_header</span>(
-  <span class='kw'>connection</span>,
-  <span class='kw'>survey_name</span>,
-  <span class='kw'>rec_type</span>,
-  multiple = <span class='fl'>FALSE</span>,
-  collect = <span class='fl'>FALSE</span>
-)
+<span class='fu'>inboveg_header</span><span class='op'>(</span>
+  <span class='va'>connection</span>,
+  <span class='va'>survey_name</span>,
+  <span class='va'>rec_type</span>,
+  multiple <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  collect <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span>
 
-<span class='fu'>inboveg_qualifiers</span>(<span class='kw'>connection</span>, <span class='kw'>survey_name</span>, <span class='kw'>qualifier_type</span>, multiple = <span class='fl'>FALSE</span>)
+<span class='fu'>inboveg_qualifiers</span><span class='op'>(</span><span class='va'>connection</span>, <span class='va'>survey_name</span>, <span class='va'>qualifier_type</span>, multiple <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
-<span class='fu'>inboveg_recordings</span>(<span class='kw'>connection</span>, <span class='kw'>survey_name</span>, collect = <span class='fl'>FALSE</span>, multiple = <span class='fl'>FALSE</span>)
+<span class='fu'>inboveg_recordings</span><span class='op'>(</span><span class='va'>connection</span>, <span class='va'>survey_name</span>, collect <span class='op'>=</span> <span class='cn'>FALSE</span>, multiple <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
-<span class='fu'>inboveg_survey</span>(<span class='kw'>connection</span>, <span class='kw'>survey_name</span>, collect = <span class='fl'>FALSE</span>)</pre>
+<span class='fu'>inboveg_survey</span><span class='op'>(</span><span class='va'>connection</span>, <span class='va'>survey_name</span>, collect <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
 
     <h2 class="hasAnchor" id="connect-inbo-dbase"><a class="anchor" href="#connect-inbo-dbase"></a>connect_inbo_dbase</h2>

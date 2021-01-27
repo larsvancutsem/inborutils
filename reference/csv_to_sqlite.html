@@ -76,7 +76,7 @@ to learn more about." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">inborutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9086</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -84,7 +84,7 @@ to learn more about." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -113,7 +113,7 @@ to learn more about." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/inbo/inborutils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -143,16 +143,16 @@ memory. See the INBO tutorial <a href='https://github.com/inbo/tutorials/blob/ma
 to learn more about.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>csv_to_sqlite</span>(
-  <span class='kw'>csv_file</span>,
-  <span class='kw'>sqlite_file</span>,
-  <span class='kw'>table_name</span>,
-  delim = <span class='st'>","</span>,
-  pre_process_size = <span class='fl'>1000</span>,
-  chunk_size = <span class='fl'>50000</span>,
-  show_progress_bar = <span class='fl'>TRUE</span>,
-  <span class='kw'>...</span>
-)</pre>
+    <pre class="usage"><span class='fu'>csv_to_sqlite</span><span class='op'>(</span>
+  <span class='va'>csv_file</span>,
+  <span class='va'>sqlite_file</span>,
+  <span class='va'>table_name</span>,
+  delim <span class='op'>=</span> <span class='st'>","</span>,
+  pre_process_size <span class='op'>=</span> <span class='fl'>1000</span>,
+  chunk_size <span class='op'>=</span> <span class='fl'>50000</span>,
+  show_progress_bar <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -205,34 +205,34 @@ refers to the custom written callback function <code>append_to_sqlite</code> app
 to each chunk.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'>R.utils</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://dplyr.tidyverse.org'>dplyr</a></span>)
-<span class='kw'>csv.name</span> <span class='op'>&lt;-</span> <span class='st'>"2016-04-20-processed-logs-big-file-example.csv"</span>
-<span class='kw'>db.name</span> <span class='op'>&lt;-</span> <span class='st'>"2016-04-20-processed-logs-big-file-example.db"</span>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>R.utils</span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
+<span class='va'>csv.name</span> <span class='op'>&lt;-</span> <span class='st'>"2016-04-20-processed-logs-big-file-example.csv"</span>
+<span class='va'>db.name</span> <span class='op'>&lt;-</span> <span class='st'>"2016-04-20-processed-logs-big-file-example.db"</span>
 <span class='co'># download the CSV file example</span>
-<span class='kw'>csv.url</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"https://s3-eu-west-1.amazonaws.com/lw-birdtracking-data/"</span>,
-                 <span class='kw'>csv.name</span>, <span class='st'>".gz"</span>, sep = <span class='st'>""</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/download.file.html'>download.file</a></span>(<span class='kw'>csv.url</span>, destfile = <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='kw'>csv.name</span>, <span class='st'>".gz"</span>))
-<span class='fu'>gunzip</span>(<span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='kw'>csv.name</span>, <span class='st'>".gz"</span>))
+<span class='va'>csv.url</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"https://s3-eu-west-1.amazonaws.com/lw-birdtracking-data/"</span>,
+                 <span class='va'>csv.name</span>, <span class='st'>".gz"</span>, sep <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/download.file.html'>download.file</a></span><span class='op'>(</span><span class='va'>csv.url</span>, destfile <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='va'>csv.name</span>, <span class='st'>".gz"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>gunzip</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='va'>csv.name</span>, <span class='st'>".gz"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='co'># Make a SQLite database</span>
-<span class='kw'>sqlite_file</span> <span class='op'>&lt;-</span> <span class='st'>"example2.sqlite"</span>
-<span class='kw'>table_name</span> <span class='op'>&lt;-</span> <span class='st'>"birdtracks"</span>
-<span class='fu'>csv_to_sqlite</span>(csv_file = <span class='kw'>csv.name</span>,
-              sqlite_file = <span class='kw'>sqlite_file</span>,
-              table_name =<span class='kw'>table_name</span>)
+<span class='va'>sqlite_file</span> <span class='op'>&lt;-</span> <span class='st'>"example2.sqlite"</span>
+<span class='va'>table_name</span> <span class='op'>&lt;-</span> <span class='st'>"birdtracks"</span>
+<span class='fu'>csv_to_sqlite</span><span class='op'>(</span>csv_file <span class='op'>=</span> <span class='va'>csv.name</span>,
+              sqlite_file <span class='op'>=</span> <span class='va'>sqlite_file</span>,
+              table_name <span class='op'>=</span><span class='va'>table_name</span><span class='op'>)</span>
 <span class='co'># Get access to SQLite database</span>
-<span class='kw'>my_db</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/src_dbi.html'>src_sqlite</a></span>(<span class='kw'>sqlite_file</span>, create = <span class='fl'>FALSE</span>)
-<span class='kw'>bird_tracking</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/tbl.html'>tbl</a></span>(<span class='kw'>my_db</span>, <span class='st'>"birdtracks"</span>)
+<span class='va'>my_db</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/src_dbi.html'>src_sqlite</a></span><span class='op'>(</span><span class='va'>sqlite_file</span>, create <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='va'>bird_tracking</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/tbl.html'>tbl</a></span><span class='op'>(</span><span class='va'>my_db</span>, <span class='st'>"birdtracks"</span><span class='op'>)</span>
 <span class='co'># Example query via dplyr</span>
-<span class='kw'>results</span> <span class='op'>&lt;-</span> <span class='kw'>bird_tracking</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='kw'>device_info_serial</span> <span class='op'>==</span> <span class='fl'>860</span>) <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span>(<span class='kw'>date_time</span>, <span class='kw'>latitude</span>, <span class='kw'>longitude</span>, <span class='kw'>altitude</span>) <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='kw'>date_time</span> <span class='op'>&lt;</span> <span class='st'>"2014-07-01"</span>) <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='kw'>date_time</span> <span class='op'>&gt;</span> <span class='st'>"2014-03-01"</span>) <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://tibble.tidyverse.org/reference/as_tibble.html'>as_tibble</a></span>()
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>results</span>)
-}
+<span class='va'>results</span> <span class='op'>&lt;-</span> <span class='va'>bird_tracking</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>device_info_serial</span> <span class='op'>==</span> <span class='fl'>860</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>date_time</span>, <span class='va'>latitude</span>, <span class='va'>longitude</span>, <span class='va'>altitude</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>date_time</span> <span class='op'>&lt;</span> <span class='st'>"2014-07-01"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>date_time</span> <span class='op'>&gt;</span> <span class='st'>"2014-03-01"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://tibble.tidyverse.org/reference/as_tibble.html'>as_tibble</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>results</span><span class='op'>)</span>
+<span class='op'>}</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -74,7 +74,7 @@ the recorder type. See the examples for how to get information for all surveys."
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">inborutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9086</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -82,7 +82,7 @@ the recorder type. See the examples for how to get information for all surveys."
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -111,7 +111,7 @@ the recorder type. See the examples for how to get information for all surveys."
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/inbo/inborutils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -139,8 +139,8 @@ information (metadata for a vegetation-recording or releve) for one or more surv
 the recorder type. See the examples for how to get information for all surveys.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='connect_inbo_dbase.html'>inboveg_header</a></span>(<span class='kw'>connection</span>, <span class='kw'>survey_name</span>, <span class='kw'>rec_type</span>, multiple = <span class='fl'>FALSE</span>,
-  collect = <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'><a href='connect_inbo_dbase.html'>inboveg_header</a></span><span class='op'>(</span><span class='va'>connection</span>, <span class='va'>survey_name</span>, <span class='va'>rec_type</span>, multiple <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  collect <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -195,25 +195,25 @@ VagueDateBegin, VagueDateEnd, SurveyId, RecTypeID.</p>
 <code><a href='inboveg_survey-deprecated.html'>inboveg_survey-deprecated</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='kw'>con</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>connect_inbo_dbase</a></span>(<span class='st'>"D0010_00_Cydonia"</span>)
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>con</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>connect_inbo_dbase</a></span><span class='op'>(</span><span class='st'>"D0010_00_Cydonia"</span><span class='op'>)</span>
 
 <span class='co'># get header information from a specific survey and a specific recording type</span>
 <span class='co'># and collect the data</span>
-<span class='kw'>header_info</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>inboveg_header</a></span>(<span class='kw'>con</span>, survey_name = <span class='st'>"OudeLanden_1979"</span>,
-rec_type = <span class='st'>"Classic"</span>, collect = <span class='fl'>TRUE</span>)
+<span class='va'>header_info</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>inboveg_header</a></span><span class='op'>(</span><span class='va'>con</span>, survey_name <span class='op'>=</span> <span class='st'>"OudeLanden_1979"</span>,
+rec_type <span class='op'>=</span> <span class='st'>"Classic"</span>, collect <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
 <span class='co'># get header information from several specific surveys</span>
-<span class='kw'>header_severalsurveys</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>inboveg_header</a></span>(<span class='kw'>con</span>, survey_name =
-<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"MILKLIM_Heischraal2012"</span>, <span class='st'>"NICHE Vlaanderen"</span>), multiple = <span class='fl'>TRUE</span>)
+<span class='va'>header_severalsurveys</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>inboveg_header</a></span><span class='op'>(</span><span class='va'>con</span>, survey_name <span class='op'>=</span>
+<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"MILKLIM_Heischraal2012"</span>, <span class='st'>"NICHE Vlaanderen"</span><span class='op'>)</span>, multiple <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
 <span class='co'># get header information of all surveys,  don't collect the data</span>
-<span class='kw'>all_header_info</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>inboveg_header</a></span>(<span class='kw'>con</span>)
+<span class='va'>all_header_info</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>inboveg_header</a></span><span class='op'>(</span><span class='va'>con</span><span class='op'>)</span>
 
 <span class='co'># close the connection when done</span>
-<span class='fu'>dbDisconnect</span>(<span class='kw'>con</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span>(<span class='kw'>con</span>)
-}
+<span class='fu'>dbDisconnect</span><span class='op'>(</span><span class='va'>con</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span><span class='op'>(</span><span class='va'>con</span><span class='op'>)</span>
+<span class='op'>}</span>
 
 </div></pre>
   </div>

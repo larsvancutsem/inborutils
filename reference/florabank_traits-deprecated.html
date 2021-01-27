@@ -73,7 +73,7 @@ and returns the taxon trait values in a tidy data format" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">inborutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9086</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -81,7 +81,7 @@ and returns the taxon trait values in a tidy data format" />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -110,7 +110,7 @@ and returns the taxon trait values in a tidy data format" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/inbo/inborutils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -137,7 +137,7 @@ and returns the taxon trait values in a tidy data format" />
 and returns the taxon trait values in a tidy data format</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='connect_inbo_dbase.html'>florabank_traits</a></span>(<span class='kw'>connection</span>, <span class='kw'>trait_name</span>, collect = <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'><a href='connect_inbo_dbase.html'>florabank_traits</a></span><span class='op'>(</span><span class='va'>connection</span>, <span class='va'>trait_name</span>, collect <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -179,29 +179,29 @@ the latter four variables relate to the taxon traits.</p>
 <code><a href='florabank_taxon_ifbl_year-deprecated.html'>florabank_taxon_ifbl_year-deprecated</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'># connect to florabank</span>
-<span class='kw'>db_connectie</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>connect_inbo_dbase</a></span>(<span class='st'>"D0021_00_userFlora"</span>)
+<span class='va'>db_connectie</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>connect_inbo_dbase</a></span><span class='op'>(</span><span class='st'>"D0021_00_userFlora"</span><span class='op'>)</span>
 
 <span class='co'># get all Ellenberg values via partial matching, return as lazy query</span>
-<span class='kw'>fb_ellenberg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>florabank_traits</a></span>(<span class='kw'>db_connectie</span>, <span class='st'>"llenberg"</span>)
+<span class='va'>fb_ellenberg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>florabank_traits</a></span><span class='op'>(</span><span class='va'>db_connectie</span>, <span class='st'>"llenberg"</span><span class='op'>)</span>
 <span class='co'># collect the data</span>
-<span class='kw'>fb_ellenberg</span> <span class='op'>&lt;-</span> <span class='kw'>fb_ellenberg</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/compute.html'>collect</a></span>()
+<span class='va'>fb_ellenberg</span> <span class='op'>&lt;-</span> <span class='va'>fb_ellenberg</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/compute.html'>collect</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='co'># the same can be done by using the collect parameter</span>
-<span class='kw'>fb_ellenberg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>florabank_traits</a></span>(<span class='kw'>db_connectie</span>, <span class='st'>"llenberg"</span>, collect = <span class='fl'>TRUE</span>)
+<span class='va'>fb_ellenberg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>florabank_traits</a></span><span class='op'>(</span><span class='va'>db_connectie</span>, <span class='st'>"llenberg"</span>, collect <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
 <span class='co'># get all red lists via partial matching</span>
-<span class='kw'>fb_rodelijsten</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>florabank_traits</a></span>(<span class='kw'>db_connectie</span>, <span class='st'>"rode"</span>)
+<span class='va'>fb_rodelijsten</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>florabank_traits</a></span><span class='op'>(</span><span class='va'>db_connectie</span>, <span class='st'>"rode"</span><span class='op'>)</span>
 
 <span class='co'># get only the red list for vascular plant species</span>
-<span class='kw'>fb_rodelijstvaatplanten</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>florabank_traits</a></span>(<span class='kw'>db_connectie</span>, <span class='st'>"Rode lijst Vaatplanten"</span>)
+<span class='va'>fb_rodelijstvaatplanten</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>florabank_traits</a></span><span class='op'>(</span><span class='va'>db_connectie</span>, <span class='st'>"Rode lijst Vaatplanten"</span><span class='op'>)</span>
 
 <span class='co'>#if the trait_name argument is missing, a list of possible names is printed</span>
-<span class='fu'><a href='connect_inbo_dbase.html'>florabank_traits</a></span>(<span class='kw'>db_connectie</span>)
+<span class='fu'><a href='connect_inbo_dbase.html'>florabank_traits</a></span><span class='op'>(</span><span class='va'>db_connectie</span><span class='op'>)</span>
 
 <span class='co'>#disconnect from florabank</span>
-<span class='fu'>dbDisconnect</span>(<span class='kw'>db_connectie</span>)
-}
+<span class='fu'>dbDisconnect</span><span class='op'>(</span><span class='va'>db_connectie</span><span class='op'>)</span>
+<span class='op'>}</span>
 
 </div></pre>
   </div>

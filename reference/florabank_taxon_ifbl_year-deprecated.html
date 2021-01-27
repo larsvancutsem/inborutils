@@ -76,7 +76,7 @@ group can be chosen." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">inborutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9086</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -84,7 +84,7 @@ group can be chosen." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -113,7 +113,7 @@ group can be chosen." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/inbo/inborutils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -143,11 +143,11 @@ Observations of taxa at genus level or higher are excluded. The taxonomic
 group can be chosen.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='connect_inbo_dbase.html'>florabank_taxon_ifbl_year</a></span>(<span class='kw'>connection</span>,
-  starting_year = <span class='fl'>2010</span>, ifbl_resolution = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"1km-by-1km"</span>, <span class='st'>"4km-by-4km"</span>),
-  taxongroup =
-    <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Vaatplanten"</span>, <span class='st'>"Mossen"</span>, <span class='st'>"Lichenen (korstmossen)"</span>, <span class='st'>"Kranswieren"</span>),
-  collect = <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'><a href='connect_inbo_dbase.html'>florabank_taxon_ifbl_year</a></span><span class='op'>(</span><span class='va'>connection</span>,
+  starting_year <span class='op'>=</span> <span class='fl'>2010</span>, ifbl_resolution <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"1km-by-1km"</span>, <span class='st'>"4km-by-4km"</span><span class='op'>)</span>,
+  taxongroup <span class='op'>=</span>
+    <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Vaatplanten"</span>, <span class='st'>"Mossen"</span>, <span class='st'>"Lichenen (korstmossen)"</span>, <span class='st'>"Kranswieren"</span><span class='op'>)</span>,
+  collect <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -204,23 +204,23 @@ and 4 x 4 square combination.</p>
 <code><a href='florabank_traits-deprecated.html'>florabank_traits-deprecated</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'># connect to florabank</span>
-<span class='kw'>db_connectie</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>connect_inbo_dbase</a></span>(<span class='st'>"D0021_00_userFlora"</span>)
+<span class='va'>db_connectie</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>connect_inbo_dbase</a></span><span class='op'>(</span><span class='st'>"D0021_00_userFlora"</span><span class='op'>)</span>
 
 <span class='co'># get records at 1 km x 1 km resolution for vascular plants from 2010</span>
 <span class='co'># (default) without collecting all data into memory (default).</span>
-<span class='kw'>fb_kwartier</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>florabank_taxon_ifbl_year</a></span>(<span class='kw'>db_connectie</span>)
+<span class='va'>fb_kwartier</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>florabank_taxon_ifbl_year</a></span><span class='op'>(</span><span class='va'>db_connectie</span><span class='op'>)</span>
 <span class='co'># to collect the data in memory set collect to TRUE or do</span>
-<span class='kw'>fb_kwartier</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/compute.html'>collect</a></span>(<span class='kw'>fb_kwartier</span>)
+<span class='va'>fb_kwartier</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/compute.html'>collect</a></span><span class='op'>(</span><span class='va'>fb_kwartier</span><span class='op'>)</span>
 
 <span class='co'># get records at 4 km x 4 km resolution starting from 2000</span>
-<span class='kw'>fb_uur</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>florabank_taxon_ifbl_year</a></span>(<span class='kw'>db_connectie</span>, starting_year = <span class='fl'>2000</span>,
- ifbl_resolution = <span class='st'>"4km-by-4km"</span>, taxongroup = <span class='st'>"Mossen"</span>)
+<span class='va'>fb_uur</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_inbo_dbase.html'>florabank_taxon_ifbl_year</a></span><span class='op'>(</span><span class='va'>db_connectie</span>, starting_year <span class='op'>=</span> <span class='fl'>2000</span>,
+ ifbl_resolution <span class='op'>=</span> <span class='st'>"4km-by-4km"</span>, taxongroup <span class='op'>=</span> <span class='st'>"Mossen"</span><span class='op'>)</span>
 
 <span class='co'># disconnect from florabank</span>
-<span class='fu'>dbDisconnect</span>(<span class='kw'>db_connectie</span>)
-}
+<span class='fu'>dbDisconnect</span><span class='op'>(</span><span class='va'>db_connectie</span><span class='op'>)</span>
+<span class='op'>}</span>
 
 </div></pre>
   </div>

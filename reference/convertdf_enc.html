@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">inborutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9086</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -80,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -109,7 +109,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/inbo/inborutils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -135,7 +135,7 @@
     <p>Convert encoding of character and factor variables in a dataframe</p>
     </div>
 
-    <pre class="usage"><span class='fu'>convertdf_enc</span>(<span class='kw'>x</span>, from = <span class='st'>""</span>, to = <span class='st'>"UTF-8"</span>, sub = <span class='fl'>NA</span>, colnames = <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>convertdf_enc</span><span class='op'>(</span><span class='va'>x</span>, from <span class='op'>=</span> <span class='st'>""</span>, to <span class='op'>=</span> <span class='st'>"UTF-8"</span>, sub <span class='op'>=</span> <span class='cn'>NA</span>, colnames <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -158,7 +158,8 @@ class (such as <code>data.frame</code> or <code>sf</code>)</p></td>
       <td><p>character string.  If not <code>NA</code> it is used to replace
     any non-convertible bytes in the input.  (This would normally be a
     single character, but can be more.)  If <code>"byte"</code>, the indication is
-    <code>"&lt;xx&gt;"</code> with the hex code of the byte.</p></td>
+    <code>"&lt;xx&gt;"</code> with the hex code of the byte.  If <code>"Unicode"</code>
+    and converting from UTF-8, the Unicode point in the form <code>"&lt;U+xxxx&gt;"</code>.</p></td>
     </tr>
     <tr>
       <th>colnames</th>
