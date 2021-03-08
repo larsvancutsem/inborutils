@@ -7,7 +7,7 @@
     <loc>https://inbo.github.io/inborutils/reference/append_to_sqlite.html</loc>
   </url>
   <url>
-    <loc>https://inbo.github.io/inborutils/reference/connect_inbo_dbase-deprecated.html</loc>
+    <loc>https://inbo.github.io/inborutils/reference/connect_inbo_dbase-defunct.html</loc>
   </url>
   <url>
     <loc>https://inbo.github.io/inborutils/reference/convertdf_enc.html</loc>
@@ -34,13 +34,13 @@
     <loc>https://inbo.github.io/inborutils/reference/extract_soil_map_data.html</loc>
   </url>
   <url>
-    <loc>https://inbo.github.io/inborutils/reference/florabank_observations-deprecated.html</loc>
+    <loc>https://inbo.github.io/inborutils/reference/florabank_observations-defunct.html</loc>
   </url>
   <url>
-    <loc>https://inbo.github.io/inborutils/reference/florabank_taxon_ifbl_year-deprecated.html</loc>
+    <loc>https://inbo.github.io/inborutils/reference/florabank_taxon_ifbl_year-defunct.html</loc>
   </url>
   <url>
-    <loc>https://inbo.github.io/inborutils/reference/florabank_traits-deprecated.html</loc>
+    <loc>https://inbo.github.io/inborutils/reference/florabank_traits-defunct.html</loc>
   </url>
   <url>
     <loc>https://inbo.github.io/inborutils/reference/gbif_species_name_match.html</loc>
@@ -55,25 +55,25 @@
     <loc>https://inbo.github.io/inborutils/reference/human_filesize.html</loc>
   </url>
   <url>
-    <loc>https://inbo.github.io/inborutils/reference/inborutils-deprecated.html</loc>
+    <loc>https://inbo.github.io/inborutils/reference/inborutils-defunct.html</loc>
   </url>
   <url>
     <loc>https://inbo.github.io/inborutils/reference/inborutils-package.html</loc>
   </url>
   <url>
-    <loc>https://inbo.github.io/inborutils/reference/inboveg_classification-deprecated.html</loc>
+    <loc>https://inbo.github.io/inborutils/reference/inboveg_classification-defunct.html</loc>
   </url>
   <url>
-    <loc>https://inbo.github.io/inborutils/reference/inboveg_header-deprecated.html</loc>
+    <loc>https://inbo.github.io/inborutils/reference/inboveg_header-defunct.html</loc>
   </url>
   <url>
-    <loc>https://inbo.github.io/inborutils/reference/inboveg_qualifiers-deprecated.html</loc>
+    <loc>https://inbo.github.io/inborutils/reference/inboveg_qualifiers-defunct.html</loc>
   </url>
   <url>
-    <loc>https://inbo.github.io/inborutils/reference/inboveg_recordings-deprecated.html</loc>
+    <loc>https://inbo.github.io/inborutils/reference/inboveg_recordings-defunct.html</loc>
   </url>
   <url>
-    <loc>https://inbo.github.io/inborutils/reference/inboveg_survey-deprecated.html</loc>
+    <loc>https://inbo.github.io/inborutils/reference/inboveg_survey-defunct.html</loc>
   </url>
   <url>
     <loc>https://inbo.github.io/inborutils/reference/mow_header_split.html</loc>

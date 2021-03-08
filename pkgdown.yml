@@ -1,11 +1,11 @@
-pandoc: '2.2'
+pandoc: 2.7.3
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   data_loaders_examples: data_loaders_examples.html
   gbif_name_match: gbif_name_match.html
   guess_projection: guess_projection.html
-last_built: 2021-01-27T15:15Z
+last_built: 2021-03-08T10:25Z
 urls:
   reference: https://inbo.github.io/inborutils/reference
   article: https://inbo.github.io/inborutils/articles

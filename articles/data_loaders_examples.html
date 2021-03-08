@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">inborutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
       </span>
     </div>
 
@@ -82,13 +82,13 @@
 
       
 
-      </header><div class="row">
+      </header><script src="data_loaders_examples_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>(Down)load data from external partners</h1>
                         <h4 class="author">Stijn Van Hoey</h4>
             
-            <h4 class="date">2021-01-27</h4>
+            <h4 class="date">2021-03-08</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/inbo/inborutils/blob/master/vignettes/data_loaders_examples.Rmd"><code>vignettes/data_loaders_examples.Rmd</code></a></small>
       <div class="hidden name"><code>data_loaders_examples.Rmd</code></div>
@@ -224,19 +224,19 @@ Date    Time    Cond [µS/cm]    Quality flag    Comments
 <code class="sourceCode R"><span class="va">fpath</span> <span class="op">&lt;-</span> <span class="st">"mow_example.txt"</span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">conductivity_mow</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_mow_data.html">read_mow_data</a></span><span class="op">(</span><span class="va">fpath</span><span class="op">)</span></code></pre></div>
-<pre><code>## Warning in showSRID(uprojargs, format = "PROJ", multiline = "NO", prefer_proj =
-## prefer_proj): Discarded datum Reseau_National_Belge_1972 in Proj4 definition</code></pre>
+<pre><code>## Warning in showSRID(uprojargs, format = "PROJ", multiline = "NO", prefer_proj = prefer_proj): Discarded datum Unknown based on International 1909 (Hayford) ellipsoid in Proj4 definition,
+##  but +towgs84= values preserved</code></pre>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">conductivity_mow</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 10
-##   datetime            value quality_code quality_comments location_name
-##   &lt;dttm&gt;              &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;        
-## 1 2015-04-01 00:00:00  632. " G"         &lt;NA&gt;             Destelbergen…
-## 2 2015-04-01 00:05:00  631. " G"         &lt;NA&gt;             Destelbergen…
-## 3 2015-04-01 00:10:00  633. " G"         &lt;NA&gt;             Destelbergen…
-## 4 2015-04-01 00:15:00  631. " G"         &lt;NA&gt;             Destelbergen…
-## 5 2015-04-01 00:20:00  632. " G"         &lt;NA&gt;             Destelbergen…
-## 6 2015-04-01 00:25:00  631. " G"         &lt;NA&gt;             Destelbergen…
+##   datetime            value quality_code quality_comments location_name         
+##   &lt;dttm&gt;              &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;                 
+## 1 2015-04-01 00:00:00  632. " G"         &lt;NA&gt;             Destelbergen SF/Zeesc…
+## 2 2015-04-01 00:05:00  631. " G"         &lt;NA&gt;             Destelbergen SF/Zeesc…
+## 3 2015-04-01 00:10:00  633. " G"         &lt;NA&gt;             Destelbergen SF/Zeesc…
+## 4 2015-04-01 00:15:00  631. " G"         &lt;NA&gt;             Destelbergen SF/Zeesc…
+## 5 2015-04-01 00:20:00  632. " G"         &lt;NA&gt;             Destelbergen SF/Zeesc…
+## 6 2015-04-01 00:25:00  631. " G"         &lt;NA&gt;             Destelbergen SF/Zeesc…
 ## # … with 5 more variables: variable_name &lt;chr&gt;, unit &lt;chr&gt;, longitude &lt;dbl&gt;,
 ## #   latitude &lt;dbl&gt;, source_filename &lt;chr&gt;</code></pre>
 <p>(<em>Remark</em>: this example file is provided by the package itself, see also on <a href="https://github.com/inbo/inborutils/tree/master/inst/extdata">github</a>)</p>
@@ -273,14 +273,14 @@ Date    Time    Cond [µS/cm]    Quality flag    Comments
 <code class="sourceCode R"><span class="va">rainfall_kmi</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_kmi_data.html">read_kmi_data</a></span><span class="op">(</span><span class="va">rpath</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">rainfall_kmi</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 7
-##   datetime            location_name value unit  variable_name source_filename
-##   &lt;dttm&gt;              &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;         &lt;chr&gt;          
-## 1 2012-01-01 01:00:00 SINT_KATELIJ…   0   mm    precipitation kmi_example.txt
-## 2 2012-01-01 02:00:00 SINT_KATELIJ…   0   mm    precipitation kmi_example.txt
-## 3 2012-01-01 03:00:00 SINT_KATELIJ…   0   mm    precipitation kmi_example.txt
-## 4 2012-01-01 04:00:00 SINT_KATELIJ…   0   mm    precipitation kmi_example.txt
-## 5 2012-01-01 05:00:00 SINT_KATELIJ…   1.1 mm    precipitation kmi_example.txt
-## 6 2012-01-01 06:00:00 SINT_KATELIJ…   0.2 mm    precipitation kmi_example.txt
+##   datetime            location_name    value unit  variable_name source_filename
+##   &lt;dttm&gt;              &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;         &lt;chr&gt;          
+## 1 2012-01-01 01:00:00 SINT_KATELIJNE_…   0   mm    precipitation kmi_example.txt
+## 2 2012-01-01 02:00:00 SINT_KATELIJNE_…   0   mm    precipitation kmi_example.txt
+## 3 2012-01-01 03:00:00 SINT_KATELIJNE_…   0   mm    precipitation kmi_example.txt
+## 4 2012-01-01 04:00:00 SINT_KATELIJNE_…   0   mm    precipitation kmi_example.txt
+## 5 2012-01-01 05:00:00 SINT_KATELIJNE_…   1.1 mm    precipitation kmi_example.txt
+## 6 2012-01-01 06:00:00 SINT_KATELIJNE_…   0.2 mm    precipitation kmi_example.txt
 ## # … with 1 more variable: quality_code &lt;chr&gt;</code></pre>
 <p>(<em>Remark</em>: this example file is provided by the package itself, see also on <a href="https://github.com/inbo/inborutils/tree/master/inst/extdata">github</a>)</p>
 </div>
