@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Human-readable binary file size — human_filesize • inborutils</title>
+<title>Changelog • inborutils</title>
 
 
 <!-- jquery -->
@@ -39,12 +39,7 @@
 
 
 
-<meta property="og:title" content="Human-readable binary file size — human_filesize" />
-<meta property="og:description" content="Takes an integer (referring to number of bytes) and returns an optimally
-human-readable
-binary-prefixed
-byte size (KiB, MiB, GiB, TiB, PiB, EiB).
-The function is vectorised." />
+<meta property="og:title" content="Changelog" />
 
 
 
@@ -63,7 +58,7 @@ The function is vectorised." />
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-topic">
+    <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -133,50 +128,26 @@ The function is vectorised." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Human-readable binary file size</h1>
-    <small class="dont-index">Source: <a href='https://github.com/inbo/inborutils/blob/master/R/download_zenodo.R'><code>R/download_zenodo.R</code></a></small>
-    <div class="hidden name"><code>human_filesize.Rd</code></div>
+      <h1 data-toc-skip>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/inbo/inborutils/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="ref-description">
-    <p>Takes an integer (referring to number of bytes) and returns an optimally
-human-readable
-<a href='https://en.wikipedia.org/wiki/Binary_prefix'>binary-prefixed</a>
-byte size (KiB, MiB, GiB, TiB, PiB, EiB).
-The function is vectorised.</p>
-    </div>
-
-    <pre class="usage"><span class='fu'>human_filesize</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
-
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>x</th>
-      <td><p>A positive integer, i.e. the number of bytes (B).
-Can be a vector of file sizes.</p></td>
-    </tr>
-    </table>
-
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>A character vector.</p>
-    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
-
-    <p>Floris Vanderhaeghe, <a href='mailto:floris.vanderhaeghe@inbo.be'>floris.vanderhaeghe@inbo.be</a></p>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>human_filesize</span><span class='op'>(</span><span class='fl'>7845691</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "7.5 MiB"</div><div class='input'><span class='va'>v</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>12345</span>, <span class='fl'>456987745621258</span><span class='op'>)</span>
-<span class='fu'>human_filesize</span><span class='op'>(</span><span class='va'>v</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "12.1 KiB"  "415.6 TiB"</div><div class='input'>
-</div></pre>
+    <div id="inborutils-014" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.4">
+<a href="#inborutils-014" class="anchor"></a>inborutils 0.1.4</h1>
+<ul>
+<li>Changed setup_coding_club_session so it works without authentication (<a href='https://github.com/inbo/inborutils/issues/111'>#111</a>)</li>
+<li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
+</ul>
+</div>
   </div>
+
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
+
 </div>
 
 

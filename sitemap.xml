@@ -19,9 +19,6 @@
     <loc>https://inbo.github.io/inborutils/reference/csv_to_sqlite.html</loc>
   </url>
   <url>
-    <loc>https://inbo.github.io/inborutils/reference/dbDisconnect-OdbcConnection-method.html</loc>
-  </url>
-  <url>
     <loc>https://inbo.github.io/inborutils/reference/df_factors_to_char.html</loc>
   </url>
   <url>
@@ -77,9 +74,6 @@
   </url>
   <url>
     <loc>https://inbo.github.io/inborutils/reference/mow_header_split.html</loc>
-  </url>
-  <url>
-    <loc>https://inbo.github.io/inborutils/reference/on_connection_opened.html</loc>
   </url>
   <url>
     <loc>https://inbo.github.io/inborutils/reference/plot_coordinates_on_map.html</loc>
