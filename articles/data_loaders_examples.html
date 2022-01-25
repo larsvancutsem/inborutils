@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,18 +33,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">inborutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.5</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -70,7 +66,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/inbo/inborutils/">
+  <a href="https://github.com/inbo/inborutils/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -89,31 +85,31 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>(Down)load data from external partners</h1>
-                        <h4 class="author">Stijn Van Hoey</h4>
+                        <h4 data-toc-skip class="author">Stijn Van Hoey</h4>
             
-            <h4 class="date">2021-06-21</h4>
+            <h4 data-toc-skip class="date">2022-01-25</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/inbo/inborutils/blob/master/vignettes/data_loaders_examples.Rmd"><code>vignettes/data_loaders_examples.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/inbo/inborutils/blob/HEAD/vignettes/data_loaders_examples.Rmd" class="external-link"><code>vignettes/data_loaders_examples.Rmd</code></a></small>
       <div class="hidden name"><code>data_loaders_examples.Rmd</code></div>
 
     </div>
 
     
     
-<div id="introduction" class="section level2">
-<h2 class="hasAnchor">
-<a href="#introduction" class="anchor"></a>Introduction</h2>
+<div class="section level2">
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
 <p>We regularly get data sets (e.g. csv) from external partners with specific data formats. To overcome redundant work in writing custom functions to load these data sets, this vignette provides some examples for custom data readers provided by the <code>inborutils</code> package.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/inbo/inborutils">inborutils</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/inbo/inborutils" class="external-link">inborutils</a></span><span class="op">)</span></code></pre></div>
 </div>
-<div id="knmi-data" class="section level2">
-<h2 class="hasAnchor">
-<a href="#knmi-data" class="anchor"></a>KNMI data</h2>
-<p>The Dutch meteoroligcal institute, KNMI, provides a webservice to query and download data. <a href="https://www.knmi.nl/kennis-en-datacentrum/achtergrond/data-ophalen-vanuit-een-script">This tutorial</a> provides more information about their service.</p>
+<div class="section level2">
+<h2 id="knmi-data">KNMI data<a class="anchor" aria-label="anchor" href="#knmi-data"></a>
+</h2>
+<p>The Dutch meteoroligcal institute, KNMI, provides a webservice to query and download data. <a href="https://www.knmi.nl/kennis-en-datacentrum/achtergrond/data-ophalen-vanuit-een-script" class="external-link">This tutorial</a> provides more information about their service.</p>
 <p>For the hourly data, the R function <code>download_knmi_data_hour</code> facilitates the download of the data. To download data, the required inputs are the <code>stations</code>, <code>variables</code>, a <code>start_date</code> and an <code>end_date</code>.</p>
-<p>In order to have an idea about the measurement stations that can be used, KNMI provides an overview list <a href="http://projects.knmi.nl/klimatologie/metadata/stationslijst.html">here</a>.</p>
-<p>The variables, for which both a group name or a variable name can be used, also provided in the <a href="https://www.knmi.nl/kennis-en-datacentrum/achtergrond/data-ophalen-vanuit-een-script">KNMI documentation</a>:</p>
+<p>In order to have an idea about the measurement stations that can be used, KNMI provides an overview list <a href="http://projects.knmi.nl/klimatologie/metadata/stationslijst.html" class="external-link">here</a>.</p>
+<p>The variables, for which both a group name or a variable name can be used, also provided in the <a href="https://www.knmi.nl/kennis-en-datacentrum/achtergrond/data-ophalen-vanuit-een-script" class="external-link">KNMI documentation</a>:</p>
 <table class="table">
 <thead><tr class="header">
 <th>group name</th>
@@ -160,40 +156,40 @@
 </table>
 <p>Hence, for a given start (e.g. January 1st 2012) and end date (February 1st 2012), the data download for rainfall data in Vlissingen (<code>310</code>) and Wesdorpe (<code>319</code>), writing the output to a file called <code>knmi_download.csv</code>, can be started as follows:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">response</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/download_knmi_data_hour.html">download_knmi_data_hour</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">310</span>, <span class="fl">319</span><span class="op">)</span>, <span class="st">"PRCP"</span>,
+<code class="sourceCode R"><span class="va">response</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/download_knmi_data_hour.html">download_knmi_data_hour</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">310</span>, <span class="fl">319</span><span class="op">)</span>, <span class="st">"PRCP"</span>,
                                     <span class="st">"2012-01-01"</span>, <span class="st">"2012-02-01"</span>,
                                     output_file <span class="op">=</span> <span class="st">"knmi_download.csv"</span><span class="op">)</span></code></pre></div>
 <p>When chosen the rainfall data only, the package already includes a specific function to read the rainfall data (a more general functionality is on the <code>todo</code>-list, feel free to extend the existing function):</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">rain_knmi_2012</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_knmi_data.html">read_knmi_data</a></span><span class="op">(</span><span class="st">"./knmi_download.csv"</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">rain_knmi_2012</span><span class="op">)</span></code></pre></div>
-<pre><code>##   value            datetime unit variable_name longitude latitude location_name
-## 1  -1.0 2012-01-01 01:00:00   mm precipitation     3.596   51.442    VLISSINGEN
-## 2   1.7 2012-01-01 02:00:00   mm precipitation     3.596   51.442    VLISSINGEN
-## 3   0.4 2012-01-01 03:00:00   mm precipitation     3.596   51.442    VLISSINGEN
-## 4  -1.0 2012-01-01 04:00:00   mm precipitation     3.596   51.442    VLISSINGEN
-## 5   0.2 2012-01-01 05:00:00   mm precipitation     3.596   51.442    VLISSINGEN
-## 6   0.0 2012-01-01 06:00:00   mm precipitation     3.596   51.442    VLISSINGEN
-##     source_filename quality_code
-## 1 knmi_download.csv             
-## 2 knmi_download.csv             
-## 3 knmi_download.csv             
-## 4 knmi_download.csv             
-## 5 knmi_download.csv             
-## 6 knmi_download.csv</code></pre>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">rain_knmi_2012</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">##   value            datetime unit variable_name longitude latitude location_name</span>
+<span class="co">## 1  -1.0 2012-01-01 01:00:00   mm precipitation     3.596   51.442    VLISSINGEN</span>
+<span class="co">## 2   1.7 2012-01-01 02:00:00   mm precipitation     3.596   51.442    VLISSINGEN</span>
+<span class="co">## 3   0.4 2012-01-01 03:00:00   mm precipitation     3.596   51.442    VLISSINGEN</span>
+<span class="co">## 4  -1.0 2012-01-01 04:00:00   mm precipitation     3.596   51.442    VLISSINGEN</span>
+<span class="co">## 5   0.2 2012-01-01 05:00:00   mm precipitation     3.596   51.442    VLISSINGEN</span>
+<span class="co">## 6   0.0 2012-01-01 06:00:00   mm precipitation     3.596   51.442    VLISSINGEN</span>
+<span class="co">##     source_filename quality_code</span>
+<span class="co">## 1 knmi_download.csv             </span>
+<span class="co">## 2 knmi_download.csv             </span>
+<span class="co">## 3 knmi_download.csv             </span>
+<span class="co">## 4 knmi_download.csv             </span>
+<span class="co">## 5 knmi_download.csv             </span>
+<span class="co">## 6 knmi_download.csv</span></code></pre>
 <p>From which a time series plot can be made:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">rain_knmi_2012</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">datetime</span>, y <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"mm"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">rain_knmi_2012</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">datetime</span>, y <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">xlab</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="st">"mm"</span><span class="op">)</span></code></pre></div>
 <p><img src="data_loaders_examples_files/figure-html/unnamed-chunk-6-1.png" width="672"></p>
 <p>From the figure, it gets clear that KNMI uses <code>-1</code> to define Nan values.</p>
 </div>
-<div id="mow-hic-data" class="section level2">
-<h2 class="hasAnchor">
-<a href="#mow-hic-data" class="anchor"></a>MOW-HIC data</h2>
+<div class="section level2">
+<h2 id="mow-hic-data">MOW-HIC data<a class="anchor" aria-label="anchor" href="#mow-hic-data"></a>
+</h2>
 <p>When receiving data from MOW (apart from using the waterinfo API), the file format of MOW data sets looks as follows:</p>
 <pre><code>Station Name:   Destelbergen SF/Zeeschelde
 Station Number: zes57n-SF-CM
@@ -227,34 +223,34 @@ Date    Time    Cond [µS/cm]    Quality flag    Comments
 <code class="sourceCode R"><span class="va">fpath</span> <span class="op">&lt;-</span> <span class="st">"mow_example.txt"</span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">conductivity_mow</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_mow_data.html">read_mow_data</a></span><span class="op">(</span><span class="va">fpath</span><span class="op">)</span></code></pre></div>
-<pre><code>## Warning in showSRID(uprojargs, format = "PROJ", multiline = "NO", prefer_proj = prefer_proj): Discarded datum Unknown based on International 1909 (Hayford) ellipsoid in Proj4 definition,
-##  but +towgs84= values preserved</code></pre>
+<pre><code><span class="co">## Warning in showSRID(uprojargs, format = "PROJ", multiline = "NO", prefer_proj = prefer_proj): Discarded datum Unknown based on International 1909 (Hayford) ellipsoid in Proj4 definition,</span>
+<span class="co">##  but +towgs84= values preserved</span></code></pre>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">conductivity_mow</span><span class="op">)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 10
-##   datetime            value quality_code quality_comments location_name         
-##   &lt;dttm&gt;              &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;                 
-## 1 2015-04-01 00:00:00  632. " G"         &lt;NA&gt;             Destelbergen SF/Zeesc…
-## 2 2015-04-01 00:05:00  631. " G"         &lt;NA&gt;             Destelbergen SF/Zeesc…
-## 3 2015-04-01 00:10:00  633. " G"         &lt;NA&gt;             Destelbergen SF/Zeesc…
-## 4 2015-04-01 00:15:00  631. " G"         &lt;NA&gt;             Destelbergen SF/Zeesc…
-## 5 2015-04-01 00:20:00  632. " G"         &lt;NA&gt;             Destelbergen SF/Zeesc…
-## 6 2015-04-01 00:25:00  631. " G"         &lt;NA&gt;             Destelbergen SF/Zeesc…
-## # … with 5 more variables: variable_name &lt;chr&gt;, unit &lt;chr&gt;, longitude &lt;dbl&gt;,
-## #   latitude &lt;dbl&gt;, source_filename &lt;chr&gt;</code></pre>
-<p>(<em>Remark</em>: this example file is provided by the package itself, see also on <a href="https://github.com/inbo/inborutils/tree/master/inst/extdata">github</a>)</p>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">conductivity_mow</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 6 × 10</span></span>
+<span class="co">##   datetime            value quality_code quality_comments location_name         </span>
+<span class="co">##   <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span>
+<span class="co">## <span style="color: #BCBCBC;">1</span> 2015-04-01 <span style="color: #949494;">00:00:00</span>  632. <span style="color: #949494;">"</span> G<span style="color: #949494;">"</span>         <span style="color: #BB0000;">NA</span>               Destelbergen SF/Zeesc…</span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> 2015-04-01 <span style="color: #949494;">00:05:00</span>  631. <span style="color: #949494;">"</span> G<span style="color: #949494;">"</span>         <span style="color: #BB0000;">NA</span>               Destelbergen SF/Zeesc…</span>
+<span class="co">## <span style="color: #BCBCBC;">3</span> 2015-04-01 <span style="color: #949494;">00:10:00</span>  633. <span style="color: #949494;">"</span> G<span style="color: #949494;">"</span>         <span style="color: #BB0000;">NA</span>               Destelbergen SF/Zeesc…</span>
+<span class="co">## <span style="color: #BCBCBC;">4</span> 2015-04-01 <span style="color: #949494;">00:15:00</span>  631. <span style="color: #949494;">"</span> G<span style="color: #949494;">"</span>         <span style="color: #BB0000;">NA</span>               Destelbergen SF/Zeesc…</span>
+<span class="co">## <span style="color: #BCBCBC;">5</span> 2015-04-01 <span style="color: #949494;">00:20:00</span>  632. <span style="color: #949494;">"</span> G<span style="color: #949494;">"</span>         <span style="color: #BB0000;">NA</span>               Destelbergen SF/Zeesc…</span>
+<span class="co">## <span style="color: #BCBCBC;">6</span> 2015-04-01 <span style="color: #949494;">00:25:00</span>  631. <span style="color: #949494;">"</span> G<span style="color: #949494;">"</span>         <span style="color: #BB0000;">NA</span>               Destelbergen SF/Zeesc…</span>
+<span class="co">## <span style="color: #949494;"># … with 5 more variables: variable_name &lt;chr&gt;, unit &lt;chr&gt;, longitude &lt;dbl&gt;,</span></span>
+<span class="co">## <span style="color: #949494;">#   latitude &lt;dbl&gt;, source_filename &lt;chr&gt;</span></span></code></pre>
+<p>(<em>Remark</em>: this example file is provided by the package itself, see also on <a href="https://github.com/inbo/inborutils/tree/master/inst/extdata" class="external-link">github</a>)</p>
 <p>A time series plot can be made for these data as well:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">conductivity_mow</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">datetime</span>, y <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"µS/cm"</span><span class="op">)</span> <span class="op">+</span> 
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_date.html">scale_x_datetime</a></span><span class="op">(</span>date_labels <span class="op">=</span> <span class="st">"%H:%M\n%Y-%m-%d"</span>, date_breaks <span class="op">=</span> <span class="st">"4 hours"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">conductivity_mow</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">datetime</span>, y <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">xlab</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="st">"µS/cm"</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_date.html" class="external-link">scale_x_datetime</a></span><span class="op">(</span>date_labels <span class="op">=</span> <span class="st">"%H:%M\n%Y-%m-%d"</span>, date_breaks <span class="op">=</span> <span class="st">"4 hours"</span><span class="op">)</span></code></pre></div>
 <p><img src="data_loaders_examples_files/figure-html/unnamed-chunk-10-1.png" width="672"></p>
 </div>
-<div id="kmi-data" class="section level2">
-<h2 class="hasAnchor">
-<a href="#kmi-data" class="anchor"></a>KMI data</h2>
+<div class="section level2">
+<h2 id="kmi-data">KMI data<a class="anchor" aria-label="anchor" href="#kmi-data"></a>
+</h2>
 <p>When receiving data from the Belgian Meteorological Institute, KMI, the format of the data file looks as follows (at least for some project we did):</p>
 <pre><code>date;JAAR;MAAND;DAG;UUR;STATION;NEERSLAG(mm)
 2012-1-1_1;2012;1;1;1;SINT_KATELIJNE_WAVER;0
@@ -274,41 +270,41 @@ Date    Time    Cond [µS/cm]    Quality flag    Comments
 <code class="sourceCode R"><span class="va">rpath</span> <span class="op">&lt;-</span> <span class="st">"kmi_example.txt"</span></code></pre></div>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">rainfall_kmi</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_kmi_data.html">read_kmi_data</a></span><span class="op">(</span><span class="va">rpath</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">rainfall_kmi</span><span class="op">)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 7
-##   datetime            location_name    value unit  variable_name source_filename
-##   &lt;dttm&gt;              &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;         &lt;chr&gt;          
-## 1 2012-01-01 01:00:00 SINT_KATELIJNE_…   0   mm    precipitation kmi_example.txt
-## 2 2012-01-01 02:00:00 SINT_KATELIJNE_…   0   mm    precipitation kmi_example.txt
-## 3 2012-01-01 03:00:00 SINT_KATELIJNE_…   0   mm    precipitation kmi_example.txt
-## 4 2012-01-01 04:00:00 SINT_KATELIJNE_…   0   mm    precipitation kmi_example.txt
-## 5 2012-01-01 05:00:00 SINT_KATELIJNE_…   1.1 mm    precipitation kmi_example.txt
-## 6 2012-01-01 06:00:00 SINT_KATELIJNE_…   0.2 mm    precipitation kmi_example.txt
-## # … with 1 more variable: quality_code &lt;chr&gt;</code></pre>
-<p>(<em>Remark</em>: this example file is provided by the package itself, see also on <a href="https://github.com/inbo/inborutils/tree/master/inst/extdata">github</a>)</p>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">rainfall_kmi</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 6 × 7</span></span>
+<span class="co">##   datetime            location_name    value unit  variable_name source_filename</span>
+<span class="co">##   <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span>
+<span class="co">## <span style="color: #BCBCBC;">1</span> 2012-01-01 <span style="color: #949494;">01:00:00</span> SINT_KATELIJNE_…   0   mm    precipitation kmi_example.txt</span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> 2012-01-01 <span style="color: #949494;">02:00:00</span> SINT_KATELIJNE_…   0   mm    precipitation kmi_example.txt</span>
+<span class="co">## <span style="color: #BCBCBC;">3</span> 2012-01-01 <span style="color: #949494;">03:00:00</span> SINT_KATELIJNE_…   0   mm    precipitation kmi_example.txt</span>
+<span class="co">## <span style="color: #BCBCBC;">4</span> 2012-01-01 <span style="color: #949494;">04:00:00</span> SINT_KATELIJNE_…   0   mm    precipitation kmi_example.txt</span>
+<span class="co">## <span style="color: #BCBCBC;">5</span> 2012-01-01 <span style="color: #949494;">05:00:00</span> SINT_KATELIJNE_…   1.1 mm    precipitation kmi_example.txt</span>
+<span class="co">## <span style="color: #BCBCBC;">6</span> 2012-01-01 <span style="color: #949494;">06:00:00</span> SINT_KATELIJNE_…   0.2 mm    precipitation kmi_example.txt</span>
+<span class="co">## <span style="color: #949494;"># … with 1 more variable: quality_code &lt;chr&gt;</span></span></code></pre>
+<p>(<em>Remark</em>: this example file is provided by the package itself, see also on <a href="https://github.com/inbo/inborutils/tree/master/inst/extdata" class="external-link">github</a>)</p>
 </div>
-<div id="google-maps-kml-files" class="section level2">
-<h2 class="hasAnchor">
-<a href="#google-maps-kml-files" class="anchor"></a>Google maps kml files</h2>
+<div class="section level2">
+<h2 id="google-maps-kml-files">Google maps kml files<a class="anchor" aria-label="anchor" href="#google-maps-kml-files"></a>
+</h2>
 <p>To extract coordinate and date information from a <code>kml</code> file, the function <code>load_kml</code></p>
 <p>To read the data and provide it into a similar format as the previous time series, the function <code>read_kml_file</code> is available in the <code>inborutils</code> package:</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">rpath</span> <span class="op">&lt;-</span> <span class="st">"kml_example.kml"</span></code></pre></div>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">tracks</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_kml_file.html">read_kml_file</a></span><span class="op">(</span><span class="va">rpath</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">tracks</span><span class="op">)</span></code></pre></div>
-<pre><code>##              datetime        x        y
-## 1 2017-09-20 20:45:00 4.627116 50.99224
-## 2 2017-09-23 10:15:00 4.626988 50.99254
-## 3 2017-09-23 11:05:00 4.626714 50.99274
-## 4 2017-09-24 22:40:00 4.651573 50.98692
-## 5 2017-09-25 10:15:00 4.651294 50.98704
-## 6 2017-09-25 18:50:00 4.650760 50.98626</code></pre>
-<p>(<em>Remark</em>: this example file is provided by the package itself, see also on <a href="https://github.com/inbo/inborutils/tree/master/inst/extdata">github</a>)</p>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">tracks</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">##              datetime        x        y</span>
+<span class="co">## 1 2017-09-20 20:45:00 4.627116 50.99224</span>
+<span class="co">## 2 2017-09-23 10:15:00 4.626988 50.99254</span>
+<span class="co">## 3 2017-09-23 11:05:00 4.626714 50.99274</span>
+<span class="co">## 4 2017-09-24 22:40:00 4.651573 50.98692</span>
+<span class="co">## 5 2017-09-25 10:15:00 4.651294 50.98704</span>
+<span class="co">## 6 2017-09-25 18:50:00 4.650760 50.98626</span></code></pre>
+<p>(<em>Remark</em>: this example file is provided by the package itself, see also on <a href="https://github.com/inbo/inborutils/tree/master/inst/extdata" class="external-link">github</a>)</p>
 </div>
-<div id="closure" class="section level2">
-<h2 class="hasAnchor">
-<a href="#closure" class="anchor"></a>Closure</h2>
+<div class="section level2">
+<h2 id="closure">Closure<a class="anchor" aria-label="anchor" href="#closure"></a>
+</h2>
 <p>Feel free to add other potentially useful data formats reader functions and associated documentation!</p>
 </div>
   </div>
@@ -324,11 +320,13 @@ Date    Time    Cond [µS/cm]    Quality flag    Comments
 
 
       <footer><div class="copyright">
-  <p>Developed by Hans Van Calster, Damiano Oldoni, Stijn Van Hoey.</p>
+  <p></p>
+<p>Developed by Hans Van Calster, Damiano Oldoni, Stijn Van Hoey.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -336,6 +334,8 @@ Date    Time    Cond [µS/cm]    Quality flag    Comments
 
   
 
+
+  
 
   </body>
 </html>

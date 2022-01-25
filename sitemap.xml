@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://inbo.github.io/inborutils/404.html</loc>
+  </url>
+  <url>
+    <loc>https://inbo.github.io/inborutils/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>https://inbo.github.io/inborutils/CONTRIBUTING.html</loc>
+  </url>
+  <url>
+    <loc>https://inbo.github.io/inborutils/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://inbo.github.io/inborutils/articles/data_loaders_examples.html</loc>
+  </url>
+  <url>
+    <loc>https://inbo.github.io/inborutils/articles/gbif_name_match.html</loc>
+  </url>
+  <url>
+    <loc>https://inbo.github.io/inborutils/articles/guess_projection.html</loc>
+  </url>
+  <url>
+    <loc>https://inbo.github.io/inborutils/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://inbo.github.io/inborutils/authors.html</loc>
+  </url>
+  <url>
     <loc>https://inbo.github.io/inborutils/index.html</loc>
+  </url>
+  <url>
+    <loc>https://inbo.github.io/inborutils/news/index.html</loc>
   </url>
   <url>
     <loc>https://inbo.github.io/inborutils/reference/append_to_sqlite.html</loc>
@@ -73,6 +103,9 @@
     <loc>https://inbo.github.io/inborutils/reference/inboveg_survey-defunct.html</loc>
   </url>
   <url>
+    <loc>https://inbo.github.io/inborutils/reference/index.html</loc>
+  </url>
+  <url>
     <loc>https://inbo.github.io/inborutils/reference/mow_header_split.html</loc>
   </url>
   <url>
@@ -107,14 +140,5 @@
   </url>
   <url>
     <loc>https://inbo.github.io/inborutils/reference/vif.html</loc>
-  </url>
-  <url>
-    <loc>https://inbo.github.io/inborutils/articles/data_loaders_examples.html</loc>
-  </url>
-  <url>
-    <loc>https://inbo.github.io/inborutils/articles/gbif_name_match.html</loc>
-  </url>
-  <url>
-    <loc>https://inbo.github.io/inborutils/articles/guess_projection.html</loc>
   </url>
 </urlset>
