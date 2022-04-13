@@ -93,7 +93,7 @@ csv_to_sqlite <- function(csv_file, sqlite_file, table_name,
       skip = pre_process_size + 1,
       chunk_size = chunk_size,
       progress = show_progress_bar,
-      col_names = names(attr(df, "spec")$cols),
+      col_names = colnames(df),
       ...)
     dbDisconnect(con)
 }
